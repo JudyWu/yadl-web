@@ -1,0 +1,113 @@
+.picture-selection-area
+  #picture
+    %img{src: "images/survey-images/1_Bending_M.jpg", class: 'img-responsive'}
+    %img{src: "images/survey-images/2_Standing up_M.jpg", class: 'img-responsive'}
+    %img{src: "images/survey-images/3_Walking_M_a.jpg", class: 'img-responsive'}
+    %img{src: "images/survey-images/4_Running_F.jpg", class: 'img-responsive'}
+    %img{src: "images/survey-images/6_Steep Walking_F.jpg", class: 'img-responsive'}
+    %img{src: "images/survey-images/8_Carring_Upstair_M.jpg", class: 'img-responsive'}
+    %img{src: "images/survey-images/13_Uneven surface_F.jpg", class: 'img-responsive'}
+    %img{src: "images/survey-images/15_Light housework_F.jpg", class: 'img-responsive'}
+    %img{src: "images/survey-images/17_Getting in a car_M.jpg", class: 'img-responsive'}
+    %img{src: "images/survey-images/18_Mopping_F.jpg", class: 'img-responsive'}
+    %img{src: "images/survey-images/9_Downstair_M.jpg", class: 'img-responsive'}
+    %img{src: "images/survey-images/9_Upstair_M.jpg", class: 'img-responsive'}
+
+  #picture-array
+    .img-overlay
+      %img{src: "images/survey-images/1_Bending_M.jpg", class: 'img-responsive'}
+
+      .overlay.click-overlay
+
+    .img-overlay
+      %img{src: "images/survey-images/2_Standing up_M.jpg", class: 'img-responsive'}
+
+      .overlay
+
+    .img-overlay
+      %img{src: "images/survey-images/3_Walking_M_a.jpg", class: 'img-responsive'}
+      .overlay
+
+    .img-overlay
+      %img{src: "images/survey-images/4_Running_F.jpg", class: 'img-responsive'}
+      .overlay
+
+    .img-overlay
+      %img{src: "images/survey-images/6_Steep Walking_F.jpg", class: 'img-responsive'}
+      .overlay
+
+    .img-overlay
+      %img{src: "images/survey-images/8_Carring_Upstair_M.jpg", class: 'img-responsive'}
+      .overlay
+
+    .img-overlay
+      %img{src: "images/survey-images/13_Uneven surface_F.jpg", class: 'img-responsive'}
+      .overlay
+
+    .img-overlay
+      %img{src: "images/survey-images/15_Light housework_F.jpg", class: 'img-responsive'}
+      .overlay
+
+    .img-overlay
+      %img{src: "images/survey-images/17_Getting in a car_M.jpg", class: 'img-responsive'}
+      .overlay
+
+    .img-overlay
+      %img{src: "images/survey-images/18_Mopping_F.jpg", class: 'img-responsive'}
+      .overlay
+
+    .img-overlay
+      %img{src: "images/survey-images/9_Downstair_M.jpg", class: 'img-responsive'}
+      .overlay
+
+    .img-overlay
+      %img{src: "images/survey-images/9_Upstair_M.jpg", class: 'img-responsive'}
+      .overlay
+
+
+
+    -# %img{src: "images/survey-images/3_Walking_M_a.jpg", class: 'img-responsive'}
+    -# %img{src: "images/survey-images/4_Running_F.jpg", class: 'img-responsive'}
+    -# %img{src: "images/survey-images/6_Steep Walking_F.jpg", class: 'img-responsive'}
+    -# %img{src: "images/survey-images/8_Carring_Upstair_M.jpg", class: 'img-responsive'}
+    -# %img{src: "images/survey-images/13_Uneven surface_F.jpg", class: 'img-responsive'}
+    -# %img{src: "images/survey-images/15_Light housework_F.jpg", class: 'img-responsive'}
+    -# %img{src: "images/survey-images/17_Getting in a car_M.jpg", class: 'img-responsive'}
+    -# %img{src: "images/survey-images/18_Mopping_F.jpg", class: 'img-responsive'}
+    -# %img{src: "images/survey-images/9_Downstair_M.jpg", class: 'img-responsive'}
+    -# %img{src: "images/survey-images/9_Upstair_M.jpg", class: 'img-responsive'}
+
+.question-area
+  %center
+    %h3 How difficult is this activity for you?
+    #picture-array-number
+      1 of 20
+
+%hr
+.rate-area.row
+  .col-xs-4.grid-right-border
+    %center
+      %a
+        #easy-choice
+      %h3 Easy
+
+  .col-xs-4.grid-right-border
+    %center
+      %a
+        #moderate-choice
+      %h3 Moderate
+
+  .col-xs-4
+    %center
+      %a
+        #hard-choice
+      %h3 Hard
+
+%hr
+.footer.row
+  .col-xs-8.col-xs-offset-1
+    %h4.footer-text @Small Data Lab. Cornell Tech
+
+  #skip.col-xs-3
+    %a
+      %h4.footer-skip Skip

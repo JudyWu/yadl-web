@@ -1,0 +1,245 @@
+$yadl-background-blue: rgba(3, 122, 255, 0.6)
+$yadl-green: rgb(82, 237, 199)
+$yadl-blue: rgb(3, 122, 255)
+$yadl-gray: rgb(151, 151, 151)
+$yadl-overlay: rgba(255, 255, 255, 0.75)
+
+
+%body, %html
+  width: 100%
+  height: 100%
+
+
+/* sign in */
+.sign-in-top
+  width: 100%
+  height: 50%
+  background-color: $yadl-background-blue
+
+.sign-in-top-text
+  margin-left: auto
+  margin-right: auto
+  padding: 20% 0
+  font-size: 3.5em
+  color: white
+
+
+.log-in-google
+  border: solid .2em $yadl-blue
+  width: 80%
+  font-size: 1.3em
+  padding: .5em
+  color: $yadl-blue
+
+.sign-in-bottom
+  height: 50%
+  width: 100%
+
+
+.footer
+  color: $yadl-gray
+  padding-top: 10%
+  bottom: 0
+  font-size: 1.2em
+
+.center-or-line
+  height: 2.5em
+  width: 90%
+  margin: 3% 0
+
+
+.form-control
+  font-size: 1.3em !important
+  text-align: center !important
+  height: 5em !important
+  border-radius: 0 !important
+  border: .2em solid $yadl-blue !important
+  width: 600px !important
+
+
+
+/* monthly-assessment */
+
+#main-page
+  width: 100%
+  height: 100%
+
+.row
+  margin-left: 0 !important
+  margin-right: 0 !important
+
+
+%h3 %h4
+  font-weight: 100 !important
+
+
+%h3
+  color: rgba(0, 0, 0, 0.87)
+
+%ul
+  %li
+    list-style-type: none
+    display: table-cell
+
+%a
+  &:hover
+    cursor: pointer
+
+#easy-choice
+  background-image: url('/images/logo/easy_green_ring.png')
+  background-size: cover
+  height: 5.1em
+  width: 5.1em
+
+#easy-choice
+  &:hover
+    background-image: url('/images/logo/easy_green_check.png')
+    background-size: 100% 100%
+    height: 5em
+    width: 5em
+
+#moderate-choice
+  background-image: url('/images/logo/moderate_orange_ring.png')
+  background-size: 100% 100%
+  height: 5.1em
+  width: 5.1em
+
+#moderate-choice
+  &:hover
+    background-image: url('/images/logo/moderate_orange_check.png')
+    background-size: 100% 100%
+    height: 5em
+    width: 5em
+
+
+#hard-choice
+  background-image: url('/images/logo/hard_red_ring.png')
+  background-size: 100% 100%
+  height: 5.1em
+  width: 5.1em
+
+#hard-choice
+  &:hover
+    background-image: url('/images/logo/hard_red_check.png')
+    background-size: 100% 100%
+    height: 5em
+    width: 5em
+
+.footer-text
+  color: $yadl-gray
+
+
+.footer-skip
+  color: $yadl-blue
+
+
+.grid-right-border
+  border-right: dotted .1em $yadl-gray !important
+
+
+.rate-area
+  padding-top: 2.5em
+  padding-bottom: 2.5em
+
+.activities-top p
+  display: inline-block
+  font-size: 2em
+  color: rgb(3, 122, 255)
+  margin: 10px
+
+.monthly-image
+  display: inline-block
+  padding-left: 0 !important
+  padding-right: 0 !important
+  position: relative
+
+
+.img-overlay
+  display: inline-block
+  padding-left: 0 !important
+  padding-right: 0 !important
+  position: relative
+
+.overlay
+  z-index: 50
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  transition: all 0.4s ease-in-out
+  -webkit-transition: all 0.4s ease-in-out
+  -moz-transition: all 0.4s ease-in-out
+  -o-transition: all 0.4s ease-in-out
+  -ms-transition: all 0.4s ease-in-out
+  background-color: rgba(255, 255, 255, 0.5)
+  opacity: 0
+  border: 3px solid $yadl-blue
+
+.overlay img
+  text-align: center
+  top: 40%
+  left: 40%
+  position: absolute
+
+.monthly-image p
+  z-index: 10
+  position: absolute
+  color: white
+  font-size: 24px
+  font-weight: bold
+  left: 25%
+  top: 40%
+
+.click-overlay
+  opacity: 1
+
+.monthly-image
+  &:hover
+    .overlay
+      opacity: 1
+
+.slick-next
+  right: 0 !important
+
+.add-activity-button
+  /*border: .2em solid $yadl-blue */
+  width: 80%
+  margin-top: 2em
+
+  img
+    margin: 10px
+
+
+.activities-bottom
+  margin-top: 3em
+  margin-bottom: 5em
+
+
+.submit-button
+  background-color: $yadl-blue
+  position: fixed
+  bottom: 0
+  width: 100%
+  z-index: 100
+  height: 5em
+
+  p
+    font-size: 2em
+    text-align: center
+    padding: .5em
+    color: white
+
+  &:hover
+    border: 1px solid $yadl-blue
+
+.thank_you_page
+  background-color: $yadl_blue
+  width: 100%
+  height: 100%
+
+.form-group
+  margin-bottom: 0 !important
+
+.form-control
+  height: 3em !important
