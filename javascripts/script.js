@@ -38,28 +38,46 @@ $(document).ready(function(){
     }
   })
 
+  var counter = 0;
+
   $('#easy-choice').click(function() {
     $('#picture .slick-next').trigger('click');
     $('.img-overlay').find('.click-overlay').parent().next().find('.overlay').addClass('click-overlay');
     $('#picture-array .slick-next').trigger('click');
+    counter ++;
+    if (counter >= 11) {
+     window.location.href = "http://localhost:4567/monthly-answer/index.html";
+    }
   });
 
   $('#moderate-choice').click(function() {
     $('#picture .slick-next').trigger('click');
     $('.img-overlay').find('.click-overlay').parent().next().find('.overlay').addClass('click-overlay');
     $('#picture-array .slick-next').trigger('click');
+    counter ++;
+    if (counter >= 11) {
+     window.location.href = "http://localhost:4567/monthly-answer/index.html";
+    }
   });
 
   $('#hard-choice').click(function() {
     $('#picture .slick-next').trigger('click');
     $('.img-overlay').find('.click-overlay').parent().next().find('.overlay').addClass('click-overlay');
     $('#picture-array .slick-next').trigger('click');
+    counter ++;
+    if (counter >= 11) {
+     window.location.href = "http://localhost:4567/monthly-answer/index.html";
+    }
   });
 
   $('.footer-skip').click(function() {
     $('#picture .slick-next').trigger('click');
     $('.img-overlay').find('.click-overlay').parent().next().find('.overlay').addClass('click-overlay');
     $('#picture-array .slick-next').trigger('click');
+    counter ++;
+    if (counter >= 11) {
+     window.location.href = "http://localhost:4567/monthly-answer/index.html";
+    }
   });
 
 
