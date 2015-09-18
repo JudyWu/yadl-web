@@ -40,4 +40,28 @@
 </center>
 
   </body>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+
+      var token = url("#access_token");
+      var dsu = 'https://ohmage-omh.smalldata.io/dsu/'
+
+      if(!token)
+      {
+          window.location.href = dsu + "oauth/authorize?client_id=mobility-visualization&response_type=token";
+      }
+      else
+      {
+          $.getJSON(dsu + "oauth/check_token?token=" + token)
+          .done(function(data) {
+              console.log("Get the token!");
+          })
+          .fail(function() {
+              window.location.href = dsu + "oauth/authorize?client_id=mobility_visualization&response_type=token";
+          });
+      }
+    });
+
+</script>
 </html>

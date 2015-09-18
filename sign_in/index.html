@@ -31,14 +31,42 @@
       </span>
     </div>
   </div>
-  <hr>
+  <h4 class='or-line'>
+    <span class='line-center'>
+      OR
+    </span>
+  </h4>
   <a class='gmail-login' href='../monthly-assessment/index.html'>
     <p class='log-in-google'>Login with Gmail</p>
   </a>
-  <div class='footer text-center'>
-    <p class='navbar-fixed-bottom'>@Small Data Lab. CornellTech</p>
+  <div class='footer text-center' style='margin-top: 20%;'>
+    <p>@Small Data Lab. CornellTech</p>
   </div>
 </center>
 
   </body>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+
+      var token = url("#access_token");
+      var dsu = 'https://ohmage-omh.smalldata.io/dsu/'
+
+      if(!token)
+      {
+          window.location.href = dsu + "oauth/authorize?client_id=mobility-visualization&response_type=token";
+      }
+      else
+      {
+          $.getJSON(dsu + "oauth/check_token?token=" + token)
+          .done(function(data) {
+              console.log("Get the token!");
+          })
+          .fail(function() {
+              window.location.href = dsu + "oauth/authorize?client_id=mobility_visualization&response_type=token";
+          });
+      }
+    });
+
+</script>
 </html>
