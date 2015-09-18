@@ -245,10 +245,10 @@ hr {
   bottom: 0;
   width: 100%;
   z-index: 100;
-  height: 5em; }
+  height: 4em; }
   /* line 250, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
   .submit-button p {
-    font-size: 2em;
+    font-size: 1.8em;
     text-align: center;
     padding: 0.5em;
     color: white; }
