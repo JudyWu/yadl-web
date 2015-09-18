@@ -10,7 +10,7 @@ $(document).ready(function(){
           arrows: true,
           // centerMode: true,
           centerPadding: '40px',
-          slidesToShow: 6
+          slidesToShow: 8
         }
       },
       {
@@ -19,7 +19,7 @@ $(document).ready(function(){
           arrows: true,
           // centerMode: true,
           centerPadding: '40px',
-          slidesToShow: 6
+          slidesToShow: 8
         }
       }
     ]
