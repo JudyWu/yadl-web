@@ -2,7 +2,7 @@ $(document).ready(function(){
   $('#picture-array').slick({
     // centerMode: true,
     centerPadding: '60px',
-    slidesToShow: 6,
+    slidesToShow: 12,
     responsive: [
       {
         breakpoint: 768,
@@ -19,7 +19,7 @@ $(document).ready(function(){
           arrows: true,
           // centerMode: true,
           centerPadding: '40px',
-          slidesToShow: 3
+          slidesToShow: 6
         }
       }
     ]
