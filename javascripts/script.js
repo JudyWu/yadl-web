@@ -31,7 +31,7 @@ $(document).ready(function(){
     $(this).find('.overlay').toggleClass('click-overlay');
     if ($('.monthly-image .overlay').hasClass('click-overlay')) {
       $('.submit-button p').replaceWith('<p>Delete</p>');
-      $('.submit-button').css('background-color', 'rgb(255, 59, 48');
+      $('.submit-button').css('background-color', 'rgb(255, 59, 48)');
     }else {
       $('.submit-button p').replaceWith('<p>Submit</p>');;
       $('.submit-button').css('background-color', 'rgb(3, 122, 255)');
