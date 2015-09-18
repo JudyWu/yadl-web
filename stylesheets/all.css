@@ -9,14 +9,14 @@
 .sign-in-top-text {
   margin-left: auto;
   margin-right: auto;
-  padding: 20% 0;
+  padding: 35% 0;
   font-size: 3.5em;
   color: white; }
 
 /* line 26, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 .log-in-google {
   border: solid 0.2em #037aff;
-  width: 80%;
+  width: 50%;
   font-size: 1.3em;
   padding: 0.5em;
   color: #037aff; }
