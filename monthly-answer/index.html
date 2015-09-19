@@ -39,68 +39,86 @@
     console.log(image_index);
     var user_id = image_info.split("&").pop().substr(8);
     console.log(user_id);
-    var image_arr = image_index.split(',');
   
-    $.each(image_arr, function(index, value) {
-      image_names.push(all_images[Number(value - 1)]);
-    });
+    if (image_index.length !== 0 ){
+      var image_arr = image_index.split(',');
+      $.each(image_arr, function(index, value) {
+        image_names.push(all_images[Number(value - 1)]);
+      });
   
-    $.each(image_names, function(index, value) {
-      $('.activities-bottom').append('<div class="col-xs-4 monthly-image" id="'+ value +'"></div>');
-      $('#'+ value).append('<img class="img-responsive" src="../images/survey-images/' + value +'.jpg" >');
-      $('#'+ value).append('<center class="overlay"></center>');
-      $('#'+ value + ' .overlay').append('<img src="../images/logo/yadl-blue-check.png">');
-    });
+      $.each(image_names, function(index, value) {
+        $('.activities-bottom').append('<div class="col-xs-4 monthly-image" id="'+ value +'"></div>');
+        $('#'+ value).append('<img class="img-responsive" src="../images/survey-images/' + value +'.jpg" >');
+        $('#'+ value).append('<center class="overlay"></center>');
+        $('#'+ value + ' .overlay').append('<img src="../images/logo/yadl-blue-check.png">');
+      });
+    }
+  
+  
   
     var add_event;
     var event_names = [];
-  
-    var json_hard_activities = {
-      "header": {
-        "id": user_id,
-        "creation_date_time": moment().format(),
-        "schema_id": {
-          "namespace": "omh",
-          "name": "yadl-survey",
-          "description": "hard activities",
-          "version": "1.0"
-        }
-      },
-      "body": {
-        "activity_image": image_names,
-        "activity_names": event_names
-      }
-    }
-  
-    console.log(json_hard_activities);
   
     $('#addition_event').on('keyup', function() {
       add_event = this.value;
     });
   
     $('#add-addon').click(function() {
-      $('.activities-bottom').prepend('<div class="col-xs-4 monthly-image" id="'+ add_event +'"></div>');
-      $('#'+ add_event).append('<img class="img-responsive" src="../images/logo/yadl-background.png" >');
-      $('#'+ add_event).append('<p>' + add_event + '</p>');
-      $('#'+ add_event).append('<center class="overlay"></center>');
-      $('#'+ add_event + ' .overlay').append('<img src="../images/logo/yadl-blue-check.png">');
+      var add_event_id = add_event.replace(/\s+/g, '-').toLowerCase();
+      $('.activities-bottom').prepend('<div class="col-xs-4 monthly-image" id="'+ add_event_id +'"></div>');
+      $('#'+ add_event_id).append('<img class="img-responsive" src="../images/logo/yadl-background.png" >');
+      $('#'+ add_event_id).append('<p>' + add_event + '</p>');
+      $('#'+ add_event_id).append('<center class="overlay"></center>');
+      $('#'+ add_event_id + ' .overlay').append('<img src="../images/logo/yadl-blue-check.png">');
       event_names.push(add_event);
       console.log(event_names);
       console.log(json_hard_activities);
       $('#addition_event').val("");
     });
   
-    $.ajax({
-      type: "POST",
-      url: "",
-      data: JSON.stringify({HardActivities: json_hard_activities}),
-      contentType: "application/json; charset=utf-8",
-      dataType: "json",
-      success: function(data) {alert(data);},
-      failure: function(errMsg) {
-        alert(errMsg);
-      }
-    })
+    var json_hard_activities;
+    var token;
+    var ohmage_dsu = "https://ohmage-omh.smalldata.io/dsu/";
+  
+    $('.submit-button').click(function(){
+      json_hard_activities = {
+        "header": {
+          "creation_date_time": moment().format(),
+          "schema_id": {
+            "namespace": "omh",
+            "name": "yadl-survey",
+            "description": "hard activities",
+            "version": "1.0"
+          },
+          "acquisition_provenance": {
+            "source_name": "YADL",
+            "modality": "self-reported"
+          }
+        },
+        "body": {
+          "activity_image": image_names,
+          "activity_names": event_names
+        }
+      };
+  
+      $.ajax({
+        type: "POST",
+        url: ohmage_dsu + "dataPoints",
+        headers: {
+          "Authorization": "Bearer " + '543250de-ba15-4619-a4b4-7ec6bc827cbd'
+        },
+        data: JSON.stringify({HardActivities: json_hard_activities}),
+        contentType: "application/json",
+        dataType: "json",
+        success: function(data) {
+          console.log(data);
+        },
+        error: function() {
+          console.log('Not posting the data');
+          console.log(json_hard_activities);
+        }
+      });
+    });
   });
 </script>
 <center class='activities-top'>
@@ -116,7 +134,7 @@
   <div id='image_array_numbers'></div>
 </center>
 <div class='row activities-bottom'></div>
-<a class='submit-button' href='../thank_you_page/index.html'>
+<a class='submit-button'>
   <p>Submit</p>
 </a>
 

@@ -1,4 +1,7 @@
 $(document).ready(function(){
+  dsu = "http://judywu.github.io/yadl-web/";
+  // "http://localhost:4567/";
+
   $('#picture-array').slick({
     // centerMode: true,
     centerPadding: '60px',
@@ -26,7 +29,6 @@ $(document).ready(function(){
   });
 
   $('#picture').slick();
-
   $('.monthly-image').click(function() {
     alert(this.id);
   });
