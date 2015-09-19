@@ -12,6 +12,7 @@
     <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <link href="../stylesheets/normalize.css" rel="stylesheet" type="text/css" /><link href="../stylesheets/all.css" rel="stylesheet" type="text/css" /><link href="../stylesheets/slick.css" rel="stylesheet" type="text/css" /><link href="../stylesheets/slick-theme.css" rel="stylesheet" type="text/css" />
     <script src="../javascripts/all.js" type="text/javascript"></script><script src="../javascripts/script.js" type="text/javascript"></script><script src="../javascripts/slick.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="http://momentjs.com/downloads/moment.js"></script>
 
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -28,17 +29,20 @@
         <!-- Content displayed to the user when in minimal view.  -->
     <!-- </div> -->
     <script>
-  $(document).ready( function() {
-    var all_images = ['1_Bending_M', '2_Standing_up_from_couch_F', '3_Standing_up_M', '4_Running_F', '5_Walking a_M', '6_Steep_Walking_F', '7_Walking_b_M', '8_Carring_upstair_M', '9_Downstair_M', '10_Upstair_M', '11_Uneven_surface_F', '12_Light_housework_F', '13_Moving_up_in_bed_F', '14_Getting_in_a_car_M', '15_Mopping_F', '16_Bending_M', '17_Biking_M', '18_Carring_downstair_M', '19_Commuting_a', '20_Commuting_b', '21_Cooking_F', '22_Dog_walking_F', '23_Dog_walking_M', '24_Going_shopping', '25_Going_shopping_F', '26_Going shopping_M', '27_Holding_cup_M', '28_Lifting_M', '29_Opening_bottle_M', '30_Opening_door', '31_Opening_jar', '32_Printing_M', '33_Reading_M', '34_Sleeping', '35_Socilizing_a', '36_Socilizing_b', '37_Standing', '38_Standing_working_M', '39_Taking_Bath', '40_Taking_off_Socks', '41_Typing_a', '42_Typing_b', '43_Waiting_for_subway', '44_Walking', '45_Washing_hand_M', '46_Zipping'];
+  $(document).ready(function() {
+    var all_images = ['1_Bending_M', '2_Standing_up_from_couch_F', '3_Standing_up_M', '4_Running_F', '5_Walking_a_M', '6_Steep_Walking_F', '7_Walking_b_M', '8_Carring_upstair_M', '9_Downstair_M', '10_Upstair_M', '11_Uneven_surface_F', '12_Light_housework_F', '13_Moving_up_in_bed_F', '14_Getting_in_a_car_M', '15_Mopping_F', '16_Bending_M', '17_Biking_M', '18_Carring_downstair_M', '19_Commuting_a', '20_Commuting_b', '21_Cooking_F', '22_Dog_walking_F', '23_Dog_walking_M', '24_Going_shopping', '25_Going_shopping_F', '26_Going shopping_M', '27_Holding_cup_M', '28_Lifting_M', '29_Opening_bottle_M', '30_Opening_door', '31_Opening_jar', '32_Printing_M', '33_Reading_M', '34_Sleeping', '35_Socilizing_a', '36_Socilizing_b', '37_Standing', '38_Standing_working_M', '39_Taking_Bath', '40_Taking_off_Socks', '41_Typing_a', '42_Typing_b', '43_Waiting_for_subway', '44_Walking', '45_Washing_hand_M', '46_Zipping'];
   
-    var image_index = [];
-    var image_names =[];
-    image_index = window.location.hash.substr(13);
+    var image_names = [];
+    var image_info = window.location.hash.substr(13);
+    console.log(image_info);
+    var image_index = image_info.substr(0, image_info.indexOf('&'));
+    console.log(image_index);
+    var user_id = image_info.split("&").pop().substr(8);
+    console.log(user_id);
+    var image_arr = image_index.split(',');
   
-    $.each(all_images, function(index, value){
-      if ($.inArray((index + 1).toString(), image_index) >= 0) {
-        image_names.push(value);
-      }
+    $.each(image_arr, function(index, value) {
+      image_names.push(all_images[Number(value - 1)]);
     });
   
     $.each(image_names, function(index, value) {
@@ -48,20 +52,55 @@
       $('#'+ value + ' .overlay').append('<img src="../images/logo/yadl-blue-check.png">');
     });
   
-    var event;
+    var add_event;
+    var event_names = [];
+  
+    var json_hard_activities = {
+      "header": {
+        "id": user_id,
+        "creation_date_time": moment().format(),
+        "schema_id": {
+          "namespace": "omh",
+          "name": "yadl-survey",
+          "description": "hard activities",
+          "version": "1.0"
+        }
+      },
+      "body": {
+        "activity_image": image_names,
+        "activity_names": event_names
+      }
+    }
+  
+    console.log(json_hard_activities);
+  
     $('#addition_event').on('keyup', function() {
-      event = this.value;
+      add_event = this.value;
     });
   
     $('#add-addon').click(function() {
-      $('.activities-bottom').append('<div class="col-xs-4 monthly-image" id="'+ event +'"></div>');
-      $('#'+ event).append('<img class="img-responsive" src="../images/logo/yadl-background.png" >');
-      $('#'+ event).append('<p>' + event + '</p>');
-      $('#'+ event).append('<center class="overlay"></center>');
-      $('#'+ event + ' .overlay').append('<img src="../images/logo/yadl-blue-check.png">');
+      $('.activities-bottom').prepend('<div class="col-xs-4 monthly-image" id="'+ add_event +'"></div>');
+      $('#'+ add_event).append('<img class="img-responsive" src="../images/logo/yadl-background.png" >');
+      $('#'+ add_event).append('<p>' + add_event + '</p>');
+      $('#'+ add_event).append('<center class="overlay"></center>');
+      $('#'+ add_event + ' .overlay').append('<img src="../images/logo/yadl-blue-check.png">');
+      event_names.push(add_event);
+      console.log(event_names);
+      console.log(json_hard_activities);
       $('#addition_event').val("");
     });
   
+    $.ajax({
+      type: "POST",
+      url: "",
+      data: JSON.stringify({HardActivities: json_hard_activities}),
+      contentType: "application/json; charset=utf-8",
+      dataType: "json",
+      success: function(data) {alert(data);},
+      failure: function(errMsg) {
+        alert(errMsg);
+      }
+    })
   });
 </script>
 <center class='activities-top'>
@@ -76,8 +115,7 @@
   </div>
   <div id='image_array_numbers'></div>
 </center>
-<div class='row activities-bottom'>
-</div>
+<div class='row activities-bottom'></div>
 <a class='submit-button' href='../thank_you_page/index.html'>
   <p>Submit</p>
 </a>

@@ -12,6 +12,7 @@
     <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <link href="../stylesheets/normalize.css" rel="stylesheet" type="text/css" /><link href="../stylesheets/all.css" rel="stylesheet" type="text/css" /><link href="../stylesheets/slick.css" rel="stylesheet" type="text/css" /><link href="../stylesheets/slick-theme.css" rel="stylesheet" type="text/css" />
     <script src="../javascripts/all.js" type="text/javascript"></script><script src="../javascripts/script.js" type="text/javascript"></script><script src="../javascripts/slick.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="http://momentjs.com/downloads/moment.js"></script>
 
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -27,7 +28,63 @@
     <!-- <div id="brim-main"> -->
         <!-- Content displayed to the user when in minimal view.  -->
     <!-- </div> -->
-    <div class='picture-selection-area'>
+    <script>
+  $(document).ready(function() {
+    var counter = 0;
+    var hard_activity_images = [];
+    var user_id = window.location.hash.substr(1);
+    var dsu = "http://judywu.github.io/yadl-web/";
+    // "http://judywu.github.io/yadl-web/";
+    // "http://localhost:4567/";
+  
+    $('#easy-choice').click(function() {
+      $('#picture .slick-next').trigger('click');
+      $('.img-overlay').find('.click-overlay').parent().next().find('.overlay').addClass('click-overlay');
+      $('#picture-array .slick-next').trigger('click');
+      counter ++;
+      $('.image_number').html(counter + 1 + ' of 46');
+      if (counter >= 4) {
+        window.location.href = dsu + "monthly-answer/index.html#image_index=" + hard_activity_images + "&" + user_id;
+      }
+    });
+  
+    $('#moderate-choice').click(function() {
+      $('#picture .slick-next').trigger('click');
+      $('.img-overlay').find('.click-overlay').parent().next().find('.overlay').addClass('click-overlay');
+      $('#picture-array .slick-next').trigger('click');
+      counter ++;
+      $('.image_number').html(counter + 1 + ' of 46');
+      if (counter >= 4) {
+        window.location.href = dsu +  "monthly-answer/index.html#image_index=" + hard_activity_images + "&" + user_id;
+      }
+    });
+  
+    $('#hard-choice').click(function() {
+      $('#picture .slick-next').trigger('click');
+      $('.img-overlay').find('.click-overlay').parent().next().find('.overlay').addClass('click-overlay');
+      $('#picture-array .slick-next').trigger('click');
+      counter ++;
+      hard_activity_images.push(counter);
+      console.log(hard_activity_images);
+      $('.image_number').html(counter + 1 + ' of 46');
+      if (counter >= 4) {
+        window.location.href = dsu + "monthly-answer/index.html#image_index=" + hard_activity_images + "&" + user_id;
+      }
+    });
+  
+    $('.footer-skip').click(function() {
+      $('#picture .slick-next').trigger('click');
+      $('.img-overlay').find('.click-overlay').parent().next().find('.overlay').addClass('click-overlay');
+      $('#picture-array .slick-next').trigger('click');
+      counter ++;
+      $('.image_number').html(counter + 1 + ' of 46');
+      if (counter >= 4) {
+        window.location.href = dsu + "monthly-answer/index.html#image_index=" + hard_activity_images + "&" + user_id;
+      }
+    });
+  });
+</script>
+<div class='picture-selection-area'>
   <div id='picture'>
     <img class='img-responsive' data-name='1' src='../images/survey-images/1_Bending_M.jpg'>
     <img class='img-responsive' data-name='2' src='../images/survey-images/2_Standing_up_from_couch_F.jpg'>
@@ -59,7 +116,7 @@
     <img class='img-responsive' data-name='28' src='../images/survey-images/28_Lifting_M.jpg'>
     <img class='img-responsive' data-name='29' src='../images/survey-images/29_Opening_bottle_M.jpg'>
     <img class='img-responsive' data-name='30' src='../images/survey-images/30_Opening_door.jpg'>
-    <img class='img-responsive' data-name='31' src='../images/survey-images/31_Opening jar.jpg'>
+    <img class='img-responsive' data-name='31' src='../images/survey-images/31_Opening_jar.jpg'>
     <img class='img-responsive' data-name='32' src='../images/survey-images/32_Printing_M.jpg'>
     <img class='img-responsive' data-name='33' src='../images/survey-images/33_Reading_M.jpg'>
     <img class='img-responsive' data-name='34' src='../images/survey-images/34_Sleeping.jpg'>
@@ -198,7 +255,7 @@
       <div class='overlay'></div>
     </div>
     <div class='img-overlay'>
-      <img class='img-responsive' data-name='31' src='../images/survey-images/31_Opening jar.jpg'>
+      <img class='img-responsive' data-name='31' src='../images/survey-images/31_Opening_jar.jpg'>
       <div class='overlay'></div>
     </div>
     <div class='img-overlay'>

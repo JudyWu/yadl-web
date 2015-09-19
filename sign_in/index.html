@@ -12,6 +12,7 @@
     <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <link href="../stylesheets/normalize.css" rel="stylesheet" type="text/css" /><link href="../stylesheets/all.css" rel="stylesheet" type="text/css" /><link href="../stylesheets/slick.css" rel="stylesheet" type="text/css" /><link href="../stylesheets/slick-theme.css" rel="stylesheet" type="text/css" />
     <script src="../javascripts/all.js" type="text/javascript"></script><script src="../javascripts/script.js" type="text/javascript"></script><script src="../javascripts/slick.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="http://momentjs.com/downloads/moment.js"></script>
 
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -27,15 +28,33 @@
     <!-- <div id="brim-main"> -->
         <!-- Content displayed to the user when in minimal view.  -->
     <!-- </div> -->
-    <div class='sign-in-top'>
+    <script>
+  $(document).ready(function() {
+    var custom_email;
+    $('#custome_email_input').on('keyup', function() {
+      custom_email = this.value;
+    });
+    var dsu = "http://judywu.github.io/yadl-web/";
+     // "http://localhost:4567/";
+  
+    $('#email-addon').click(function() {
+      console.log(custom_email);
+      $('#custome_email_input').val("");
+      if (custom_email) {
+        window.location.href = dsu + "monthly-assessment/index.html#user_id=" + custom_email;
+      }
+    });
+  });
+</script>
+<div class='sign-in-top'>
   <img class='img-responsive' src='../images/logo/YADL_sign_in.png'>
 </div>
 <center class='sign-in-bottom'>
   <div class='email-input'>
     <div class='input-group'>
-      <input aria-describedby='email-addon' class='form-control' placeholder='Enter your email' style='border: 0 !important;' type='email'>
+      <input aria-describedby='email-addon' class='form-control' id='custome_email_input' placeholder='Enter your email' style='border: 0 !important;' type='email'>
       <span class='input-group-addon' id='email-addon'>
-        <a href='../monthly-assessment/index.html'>GO!</a>
+        GO!
       </span>
     </div>
   </div>
