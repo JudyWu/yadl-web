@@ -27,7 +27,8 @@ $(document).ready(function(){
 
   $('#picture').slick();
 
-  $('.monthly-image').click(function() {
+  $('.monthly-image img').click(function() {
+    alert('hfhdsfjkhs');
     $(this).find('.overlay').toggleClass('click-overlay');
     if ($('.monthly-image .overlay').hasClass('click-overlay')) {
       $('.submit-button p').replaceWith('<p>Delete</p>');
@@ -48,10 +49,7 @@ $(document).ready(function(){
     counter ++;
     $('.image_number').html(counter + 1 + ' of 46');
     if (counter >= 46) {
-      window.location.href = "http://localhost:4567/monthly-answer/index.html?" + hard_activity_images;
-      // $('.image_array_numbers').data(hard_activity_images);
-      document.getElementByClassName("image_array_numbers").setAttribute('data-', 'hard_activity_images');
-      // window.location.href = "http://judywu.github.io/yadl-web/monthly-answer/index.html";
+      window.location.href = "http://localhost:4567/monthly-answer/index.html#image_index=" + hard_activity_images;
     }
   });
 
@@ -62,10 +60,7 @@ $(document).ready(function(){
     counter ++;
     $('.image_number').html(counter + 1 + ' of 46');
     if (counter >= 46) {
-      window.location.href = "http://localhost:4567/monthly-answer/index.html?" + hard_activity_images;
-      document.getElementByClassName("image_array_numbers").setAttribute('data', 'hard_activity_images');
-      // $('.image_array_numbers').data(hard_activity_images);
-      // window.location.href = "http://judywu.github.io/yadl-web/monthly-answer/index.html";
+      window.location.href = "http://localhost:4567/monthly-answer/index.html#image_index=" + hard_activity_images;
     }
   });
 
@@ -78,10 +73,7 @@ $(document).ready(function(){
     console.log(hard_activity_images);
     $('.image_number').html(counter + 1 + ' of 46');
     if (counter >= 46) {
-      window.location.href = "http://localhost:4567/monthly-answer/index.html?" + hard_activity_images;
-      document.getElementByClassName("image_array_numbers").setAttribute('data', 'hard_activity_images');
-      // $('.image_array_numbers').data(hard_activity_images);
-      // window.location.href = "http://judywu.github.io/yadl-web/monthly-answer/index.html";
+      window.location.href = "http://localhost:4567/monthly-answer/index.html#image_index=" + hard_activity_images;
     }
   });
 
@@ -92,10 +84,8 @@ $(document).ready(function(){
     counter ++;
     $('.image_number').html(counter + 1 + ' of 46');
     if (counter >= 46) {
-      window.location.href = "http://localhost:4567/monthly-answer/index.html?" + hard_activity_images;
-      // $('.image_array_numbers').data(hard_activity_images);
-      document.getElementByClassName("image_array_numbers").setAttribute('data', 'hard_activity_images');
-      // window.location.href = "http://judywu.github.io/yadl-web/monthly-answer/index.html";
+      window.location.href = "http://localhost:4567/monthly-answer/index.html#image_index=" + hard_activity_images;
+
     }
   });
 

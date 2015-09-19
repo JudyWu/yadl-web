@@ -12,8 +12,7 @@
     <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <link href="../stylesheets/normalize.css" rel="stylesheet" type="text/css" /><link href="../stylesheets/all.css" rel="stylesheet" type="text/css" /><link href="../stylesheets/slick.css" rel="stylesheet" type="text/css" /><link href="../stylesheets/slick-theme.css" rel="stylesheet" type="text/css" />
     <script src="../javascripts/all.js" type="text/javascript"></script><script src="../javascripts/script.js" type="text/javascript"></script><script src="../javascripts/slick.min.js" type="text/javascript"></script>
-    <script src="../javascripts/scream.js"></script>
-    <script src="../javascripts/brim.js"></script>
+
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -21,12 +20,13 @@
   </head>
 
   <body class="sign_in sign_in_index">
-    <div id="brim-mask">
+    <!-- <div id="brim-mask"> <script src="../javascripts/scream.js"></script>
+    <script src="../javascripts/brim.js"></script>-->
         <!-- Content displayed to the user when in full view. -->
-    </div>
-    <div id="brim-main">
+    <!-- </div> -->
+    <!-- <div id="brim-main"> -->
         <!-- Content displayed to the user when in minimal view.  -->
-    </div>
+    <!-- </div> -->
     <div class='sign-in-top'>
   <img class='img-responsive' src='../images/logo/YADL_sign_in.png'>
 </div>
@@ -55,21 +55,21 @@
   </body>
 
   <script type="text/javascript">
-    window.addEventListener('DOMContentLoaded', function () {
-        var scream,
-            brim;
+    // window.addEventListener('DOMContentLoaded', function () {
+    //     var scream,
+    //         brim;
 
-        scream = gajus.Scream({
-            width: {
-                portrait: 320,
-                landscape: 640
-            }
-        });
+    //     scream = gajus.Scream({
+    //         width: {
+    //             portrait: 320,
+    //             landscape: 640
+    //         }
+    //     });
 
-        brim = gajus.Brim({
-            viewport: scream
-        });
-    });
+    //     brim = gajus.Brim({
+    //         viewport: scream
+    //     });
+    // });
     // $(document).ready(function() {
 
     //   var token = url("#access_token");
