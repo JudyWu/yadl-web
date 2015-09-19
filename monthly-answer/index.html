@@ -12,6 +12,8 @@
     <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <link href="../stylesheets/normalize.css" rel="stylesheet" type="text/css" /><link href="../stylesheets/all.css" rel="stylesheet" type="text/css" /><link href="../stylesheets/slick.css" rel="stylesheet" type="text/css" /><link href="../stylesheets/slick-theme.css" rel="stylesheet" type="text/css" />
     <script src="../javascripts/all.js" type="text/javascript"></script><script src="../javascripts/script.js" type="text/javascript"></script><script src="../javascripts/slick.min.js" type="text/javascript"></script>
+    <script src="./bower_components/scream/dist/scream.js"></script>
+    <script src="./bower_components/brim/dist/brim.js"></script>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -19,6 +21,12 @@
   </head>
 
   <body class="monthly-answer monthly-answer_index">
+    <div id="brim-mask">
+        <!-- Content displayed to the user when in full view. -->
+    </div>
+    <div id="brim-main">
+        <!-- Content displayed to the user when in minimal view.  -->
+    </div>
     <center class='activities-top'>
   <h3 style='font-weight: 300;'>Your hard activities:</h3>
   <div class='add-activity-button'>
@@ -53,6 +61,21 @@
   </body>
 
   <script type="text/javascript">
+    window.addEventListener('DOMContentLoaded', function () {
+        var scream,
+            brim;
+
+        scream = gajus.Scream({
+            width: {
+                portrait: 320,
+                landscape: 640
+            }
+        });
+
+        brim = gajus.Brim({
+            viewport: scream
+        });
+    });
     // $(document).ready(function() {
 
     //   var token = url("#access_token");
