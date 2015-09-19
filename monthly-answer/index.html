@@ -112,10 +112,12 @@
         dataType: "json",
         success: function(data) {
           console.log(data);
+          window.location.href = dsu + "thank_you_page";
         },
         error: function() {
           console.log('Not posting the data');
           console.log(json_hard_activities);
+          window.location.href = dsu + "thank_you_page";
         }
       });
     });
