@@ -65,7 +65,7 @@
     <img class='img-responsive' data-name='42' src='../images/survey-images/42_Typing b.jpg'>
     <img class='img-responsive' data-name='43' src='../images/survey-images/43_Waiting for subway.jpg'>
     <img class='img-responsive' data-name='44' src='../images/survey-images/44_Walking.jpg'>
-    <img class='img-responsive' data-name='45' src='../images/survey-images/ 45_Washing hand_M.jpg'>
+    <img class='img-responsive' data-name='45' src='../images/survey-images/45_Washing hand_M.jpg'>
     <img class='img-responsive' data-name='46' src='../images/survey-images/46_Zipping.jpg'>
   </div>
   <div id='picture-array'>
@@ -246,7 +246,7 @@
       <div class='overlay'></div>
     </div>
     <div class='img-overlay'>
-      <img class='img-responsive' data-name='45' src='../images/survey-images/ 45_Washing hand_M.jpg'>
+      <img class='img-responsive' data-name='45' src='../images/survey-images/45_Washing hand_M.jpg'>
       <div class='overlay'></div>
     </div>
     <div class='img-overlay'>
@@ -259,7 +259,7 @@
   <center>
     <h4 style='font-weight: 300;'>How difficult is this activity for you?</h4>
     <div id='picture-array-number'>
-      1 of 20
+      <p class='image_number'>1 of 46</p>
     </div>
   </center>
 </div>
@@ -305,26 +305,26 @@
   </body>
 
   <script type="text/javascript">
-    $(document).ready(function() {
+    // $(document).ready(function() {
 
-      var token = url("#access_token");
-      var dsu = 'https://ohmage-omh.smalldata.io/dsu/'
+    //   var token = url("#access_token");
+    //   var dsu = 'https://ohmage-omh.smalldata.io/dsu/'
 
-      if(!token)
-      {
-          window.location.href = dsu + "oauth/authorize?client_id=mobility-visualization&response_type=token";
-      }
-      else
-      {
-          $.getJSON(dsu + "oauth/check_token?token=" + token)
-          .done(function(data) {
-              console.log("Get the token!");
-          })
-          .fail(function() {
-              window.location.href = dsu + "oauth/authorize?client_id=mobility_visualization&response_type=token";
-          });
-      }
-    });
+    //   if(!token)
+    //   {
+    //       window.location.href = dsu + "oauth/authorize?client_id=mobility-visualization&response_type=token";
+    //   }
+    //   else
+    //   {
+    //       $.getJSON(dsu + "oauth/check_token?token=" + token)
+    //       .done(function(data) {
+    //           console.log("Get the token!");
+    //       })
+    //       .fail(function() {
+    //           window.location.href = dsu + "oauth/authorize?client_id=mobility_visualization&response_type=token";
+    //       });
+    //   }
+    // });
 
 </script>
 </html>
