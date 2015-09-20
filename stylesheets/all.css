@@ -107,42 +107,42 @@ h3 {
 
 /* line 114, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 #easy-choice {
-  background-image: url("../images/logo/easy_green_ring.png");
+  background-image: url("images/logo/easy_green_ring.png");
   background-size: cover;
   height: 3em;
   width: 3em; }
 
 /* line 121, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 #easy-choice:hover {
-  background-image: url("../images/logo/easy_green_check.png");
+  background-image: url("images/logo/easy_green_check.png");
   background-size: 100% 100%;
   height: 3em;
   width: 3em; }
 
 /* line 127, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 #moderate-choice {
-  background-image: url("../images/logo/moderate_orange_ring.png");
+  background-image: url("images/logo/moderate_orange_ring.png");
   background-size: 100% 100%;
   height: 3em;
   width: 3em; }
 
 /* line 134, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 #moderate-choice:hover {
-  background-image: url("../images/logo/moderate_orange_check.png");
+  background-image: url("images/logo/moderate_orange_check.png");
   background-size: 100% 100%;
   height: 3em;
   width: 3em; }
 
 /* line 141, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 #hard-choice {
-  background-image: url("../images/logo/hard_red_ring.png");
+  background-image: url("images/logo/hard_red_ring.png");
   background-size: 100% 100%;
   height: 3em;
   width: 3em; }
 
 /* line 148, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 #hard-choice:hover {
-  background-image: url("../images/logo/hard_red_check.png");
+  background-image: url("images/logo/hard_red_check.png");
   background-size: 100% 100%;
   height: 3em;
   width: 3em; }

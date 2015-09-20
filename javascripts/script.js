@@ -57,9 +57,9 @@ $(document).ready(function(){
         });
         $.each(image_names, function(index, value) {
           $('.activities-bottom').append('<div class="col-xs-4 monthly-image" id="'+ value +'"></div>');
-          $('#'+ value).append('<img class="img-responsive" src="../images/survey-images/' + value +'.jpg" >');
+          $('#'+ value).append('<img class="img-responsive" src="images/survey-images/' + value +'.jpg" >');
           $('#'+ value).append('<center class="overlay"></center>');
-          $('#'+ value + ' .overlay').append('<img src="../images/logo/yadl-blue-check.png">');
+          $('#'+ value + ' .overlay').append('<img src="images/logo/yadl-blue-check.png">');
         });
       }
     }
@@ -99,10 +99,10 @@ $(document).ready(function(){
   $('#add-addon').click(function() {
     var add_event_id = add_event.replace(/\s+/g, '-').toLowerCase();
     $('.activities-bottom').prepend('<div class="col-xs-4 monthly-image" id="'+ add_event_id +'"></div>');
-    $('#'+ add_event_id).append('<img class="img-responsive" src="../images/logo/yadl-background.png" >');
+    $('#'+ add_event_id).append('<img class="img-responsive" src="images/logo/yadl-background.png" >');
     $('#'+ add_event_id).append('<p>' + add_event + '</p>');
     $('#'+ add_event_id).append('<center class="overlay"></center>');
-    $('#'+ add_event_id + ' .overlay').append('<img src="../images/logo/yadl-blue-check.png">');
+    $('#'+ add_event_id + ' .overlay').append('<img src="images/logo/yadl-blue-check.png">');
     event_names.push(add_event);
     console.log(event_names);
     $('#addition_event').val("");
