@@ -2,8 +2,10 @@ $yadl-background-blue: rgba(3, 122, 255, 0.6)
 $yadl-green: rgb(82, 237, 199)
 $yadl-blue: rgb(3, 122, 255)
 $yadl-gray: rgb(151, 151, 151)
+$yadl-darker-gray: rgb(155, 155, 155)
 $yadl-overlay: rgba(255, 255, 255, 0.75)
-
+$yadl-black: rgba(0, 0, 0, 0.87)
+$yadl-red: rgb(255, 59, 48)
 
 %body, %html
   width: 100%
@@ -13,20 +15,37 @@ $yadl-overlay: rgba(255, 255, 255, 0.75)
 /* sign in */
 .sign-in-top
   width: 100%
-  height: 50%
-  background-color: $yadl-background-blue
+
+.or-line
+  margin-top: 6%
+  margin-bottom: 6%
+  color: $yadl-gray !important
+
+.or-line::after
+  content: ""
+  position: absolute
+  margin-top: 1%
+  left: 0
+  right: 0
+  border-top: solid 1px $yadl-gray
+  z-index: -1
+
+.line-center
+  background: white
+  padding: 0 2%
+
 
 .sign-in-top-text
   margin-left: auto
   margin-right: auto
-  padding: 20% 0
+  padding: 30% 0
   font-size: 3.5em
   color: white
 
 
 .log-in-google
   border: solid .2em $yadl-blue
-  width: 80%
+  width: 50%
   font-size: 1.3em
   padding: .5em
   color: $yadl-blue
@@ -34,7 +53,6 @@ $yadl-overlay: rgba(255, 255, 255, 0.75)
 .sign-in-bottom
   height: 50%
   width: 100%
-
 
 .footer
   color: $yadl-gray
@@ -47,16 +65,18 @@ $yadl-overlay: rgba(255, 255, 255, 0.75)
   width: 90%
   margin: 3% 0
 
+/* survey options */
+#monthly_survey
+  background-image: url('../images/logo/monthly_survey_ring.png')
+  background-size: cover
+  height: 5.1em
+  width: 5.1em
 
-.form-control
-  font-size: 1.3em !important
-  text-align: center !important
-  height: 5em !important
-  border-radius: 0 !important
-  border: .2em solid $yadl-blue !important
-  width: 600px !important
-
-
+#daily_survey
+  background-image: url('../images/logo/daily_survey_ring.png')
+  background-size: cover
+  height: 5.1em
+  width: 5.1em
 
 /* monthly-assessment */
 
@@ -64,16 +84,32 @@ $yadl-overlay: rgba(255, 255, 255, 0.75)
   width: 100%
   height: 100%
 
+#picture
+  margin-top: -130px
+
+hr
+  margin-top: 10px !important
+  margin-bottom: 10px !important
+
+.slick-slider
+  margin-bottom: 0 !important
+
+.footer
+  padding-top: 0 !important
+
 .row
   margin-left: 0 !important
   margin-right: 0 !important
 
+.rate-area
+  padding-top: 1.3em !important
+  padding-bottom: 1.3em !important
 
-%h3 %h4
-  font-weight: 100 !important
+.next
+  z-index: -10 !important
 
-
-%h3
+h3
+  margin-top: 10px !important
   color: rgba(0, 0, 0, 0.87)
 
 %ul
@@ -85,62 +121,70 @@ $yadl-overlay: rgba(255, 255, 255, 0.75)
   &:hover
     cursor: pointer
 
+#picture-array-number
+  color: $yadl-darker-gray
+
 #easy-choice
-  background-image: url('/images/logo/easy_green_ring.png')
+  background-image: url('../images/logo/easy_green_ring.png')
   background-size: cover
-  height: 5.1em
-  width: 5.1em
+  height: 3em
+  width: 3em
 
 #easy-choice
   &:hover
-    background-image: url('/images/logo/easy_green_check.png')
+    background-image: url('../images/logo/easy_green_check.png')
     background-size: 100% 100%
-    height: 5em
-    width: 5em
+    height: 3em
+    width: 3em
 
 #moderate-choice
-  background-image: url('/images/logo/moderate_orange_ring.png')
+  background-image: url('../images/logo/moderate_orange_ring.png')
   background-size: 100% 100%
-  height: 5.1em
-  width: 5.1em
+  height: 3em
+  width: 3em
 
 #moderate-choice
   &:hover
-    background-image: url('/images/logo/moderate_orange_check.png')
+    background-image: url('../images/logo/moderate_orange_check.png')
     background-size: 100% 100%
-    height: 5em
-    width: 5em
-
+    height: 3em
+    width: 3em
 
 #hard-choice
-  background-image: url('/images/logo/hard_red_ring.png')
+  background-image: url('../images/logo/hard_red_ring.png')
   background-size: 100% 100%
-  height: 5.1em
-  width: 5.1em
+  height: 3em
+  width: 3em
 
 #hard-choice
   &:hover
-    background-image: url('/images/logo/hard_red_check.png')
+    background-image: url('../images/logo/hard_red_check.png')
     background-size: 100% 100%
-    height: 5em
-    width: 5em
+    height: 3em
+    width: 3em
 
 .footer-text
   color: $yadl-gray
 
-
 .footer-skip
   color: $yadl-blue
+  border: .1em solid $yadl-blue
+  padding: .3em 1em .3em 1em
+  width: 60px
+  text-align: center
 
+#skip
+  margin-top: -8px
 
 .grid-right-border
   border-right: dotted .1em $yadl-gray !important
-
 
 .rate-area
   padding-top: 2.5em
   padding-bottom: 2.5em
 
+
+/* monthly-answer section */
 .activities-top p
   display: inline-block
   font-size: 2em
@@ -152,7 +196,7 @@ $yadl-overlay: rgba(255, 255, 255, 0.75)
   padding-left: 0 !important
   padding-right: 0 !important
   position: relative
-
+  border: 2px solid white
 
 .img-overlay
   display: inline-block
@@ -181,13 +225,13 @@ $yadl-overlay: rgba(255, 255, 255, 0.75)
   top: 40%
   left: 40%
   position: absolute
+  height: 2em
 
 .monthly-image p
   z-index: 10
   position: absolute
-  color: white
-  font-size: 24px
-  font-weight: bold
+  color: $yadl-blue
+  font-size: 20px
   left: 25%
   top: 40%
 
@@ -203,17 +247,32 @@ $yadl-overlay: rgba(255, 255, 255, 0.75)
   right: 0 !important
 
 .add-activity-button
-  /*border: .2em solid $yadl-blue */
   width: 80%
-  margin-top: 2em
-
   img
     margin: 10px
 
 
 .activities-bottom
-  margin-top: 3em
-  margin-bottom: 5em
+  margin-top: 2em
+  margin-bottom: 4em
+
+
+.delete-button
+  background-color: $yadl-red
+  position: fixed
+  bottom: 0
+  width: 100%
+  z-index: 100
+  height: 4em
+
+  p
+    font-size: 1.8em
+    text-align: center
+    padding: .5em
+    color: white
+
+  &:hover
+    border: 1px solid $yadl-red
 
 
 .submit-button
@@ -222,10 +281,10 @@ $yadl-overlay: rgba(255, 255, 255, 0.75)
   bottom: 0
   width: 100%
   z-index: 100
-  height: 5em
+  height: 4em
 
   p
-    font-size: 2em
+    font-size: 1.8em
     text-align: center
     padding: .5em
     color: white
@@ -233,13 +292,14 @@ $yadl-overlay: rgba(255, 255, 255, 0.75)
   &:hover
     border: 1px solid $yadl-blue
 
-.thank_you_page
-  background-color: $yadl_blue
-  width: 100%
-  height: 100%
-
 .form-group
   margin-bottom: 0 !important
 
 .form-control
   height: 3em !important
+
+/* thank you page */
+#thank_you_page
+  background-color: $yadl_blue
+  width: 100%
+  height: 700px

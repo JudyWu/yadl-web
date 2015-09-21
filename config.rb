@@ -40,12 +40,20 @@ configure :development do
   activate :livereload
 end
 
+activate :deploy do |deploy|
+  deploy.method = :git
+  # deploy.remote = ""
+
+end
+
 # Methods defined in the helpers block are available in templates
 # helpers do
 #   def some_helper
 #     "Helping"
 #   end
 # end
+
+
 
 set :css_dir, 'stylesheets'
 

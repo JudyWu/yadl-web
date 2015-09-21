@@ -1,0 +1,50 @@
+iPad 2
+
+screen.width        768
+screen.height       1024
+devicePixelRatio    1
+
+
+When    orientation=portrait,
+        scale=1,
+        viewport-width=768,
+        view=full
+
+innerWidth          768
+innerHeight         927
+
+
+When    orientation=portrait,
+        scale=1,
+        viewport-width=768,
+        view=minimal
+
+innerWidth          768
+innerHeight         984
+
+
+When    orientation=portrait,
+        scale=0.25,
+        viewport-width=3072,
+        view=minimal
+
+innerWidth          3072
+innerHeight         3936
+
+
+When    orientation=landscape,
+        scale=1,
+        viewport-width=1024,
+        view=minimal
+
+innerWidth          1024
+innerHeight         728
+
+
+When    orientation=landscape,
+        scale=0.25,
+        viewport-width=4096,
+        view=minimal
+
+innerWidth          4096
+innerHeight         2912

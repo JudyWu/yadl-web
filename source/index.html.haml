@@ -1,18 +1,121 @@
-.sign-in-top
-  .sign-in-top-text.text-center YADL
 
-%center.sign-in-bottom
-  .email-input
-    .input-group
-      %input{type: 'text', class: 'form-control', placeholder: 'Enter your email'}
-      %span.input-group-btn
-        -# %button.btn.btn-default{type: 'button'}
-        -#   OK
+- images = { 1 => '1_Bending_M', 2 =>'2_Standing_up_from_couch_F', 3 => '3_Standing_up_M', 4 => '4_Running_F', 5 => '5_Walking_a_M', 6 => '6_Steep_Walking_F', 7 => '7_Walking_b_M', 8 => '8_Carring_upstair_M', 9 => '9_Downstair_M', 10 => '10_Upstair_M', 11 => '11_Uneven_surface_F', 12 => '12_Light_housework_F', 13 => '13_Moving_up_in_bed_F', 14 => '14_Getting_in_a_car_M', 15 => '15_Mopping_F', 16 => '16_Bending_M', 17 => '17_Biking_M', 18 => '18_Carring_downstair_M', 19 => '19_Commuting_a', 20 => '20_Commuting_b', 21 => '21_Cooking_F', 22 => '22_Dog_walking_F', 23 => '23_Dog_walking_M', 24 => '24_Going_shopping', 25 => '25_Going_shopping_F', 26 =>'26_Going_shopping_M', 27 => '27_Holding_cup_M', 28 => '28_Lifting_M', 29 => '29_Opening_bottle_M', 30 => '30_Opening_door', 31 => '31_Opening_jar', 32 => '32_Printing_M', 33 => '33_Reading_M', 34 => '34_Sleeping', 35 => '35_Socilizing_a', 36 => '36_Socilizing_b', 37 => '37_Standing', 38 => '38_Standing_working_M', 39 => '39_Taking_Bath', 40 => '40_Taking_off_Socks', 41 => '41_Typing_a', 42 => '42_Typing_b', 43 => '43_Waiting_for_subway', 44 => '44_Walking', 45 => '45_Washing_hand_M', 46 => '46_Zipping'}
+
+
+// sign in div
+
+#sign_in{style: 'display: none;'}
+  .sign-in-top
+    %img{src: 'images/logo/YADL_sign_in.png', class: 'img-responsive', style: 'width: 100%;'}
+
+  %center.sign-in-bottom{style: 'margin-top: 10%;'}
+    %a.gmail-login
+      %p.log-in-google Sign in with Gmail
+
+    .footer.text-center{style: 'margin-top: 15%;'}
+      %p @Small Data Lab, CornellTech
+
+// survey choice section
+
+#survey_options{style: 'display: none;'}
+  .sign_in_top
+    %img{src: 'images/logo/YADL_sign_in.png', class: 'img-responsive', style: 'width: 100%;'}
+
+  %center.options
+    %p{style: 'text-align: center; font-size: 20px; padding-top: 3%;'} Survey Type
+    .row
+      .col-xs-6
+        %a
+          #monthly_survey
+      .col-xs-6
+        %a
+          #daily_survey
+
+
+// monthly assessment div
+
+#monthly_assessment{style: 'display: none;'}
+  .picture-selection-area
+    #picture
+      - images.each do |key, value|
+        %img{src: 'images/survey-images/' + value + '.jpg', class: 'img-responsive', data: {name: key}}
+
+
+    #picture-array
+      - images.each do |key, value|
+        - if key == 1
+          .img-overlay
+            %img{src: 'images/survey-images/' + value + '.jpg', class: 'img-responsive click-overlay', data: {name: key}}
+            .overlay
+        - else
+          .img-overlay
+            %img{src: 'images/survey-images/' + value + '.jpg', class: 'img-responsive', data: {name: key}}
+            .overlay
+
+
+  .question-area
+    %center
+      %h4{style: 'font-weight: 300;'} How difficult is this activity for you?
+      #picture-array-number
+        %p.image_number 1 of 46
 
   %hr
+  .rate-area.row
+    .col-xs-4.grid-right-border
+      %center
+        %a
+          #easy-choice
+        %h4{style: 'margin-top: 30px; font-weight: 300; color: rgba(0, 0, 0, 0.87);'} Easy
 
-  %a.gmail-login{href: "monthly-assessment"}
-    %p.log-in-google Login with Gmail
+    .col-xs-4.grid-right-border
+      %center
+        %a
+          #moderate-choice
+        %h4{style: 'margin-top: 30px; font-weight: 300; color: rgba(0, 0, 0, 0.87);'} Moderate
 
-  .footer.text-center
-    %p @Small Data Lab. CornellTech
+    .col-xs-4
+      %center
+        %a
+          #hard-choice
+        %h4{style: 'margin-top: 30px; font-weight: 300; color: rgba(0, 0, 0, 0.87);'} Hard
+
+  %hr
+  .footer.row
+    .col-xs-8.col-xs-offset-1
+      %h5.footer-text @Small Data Lab, Cornell Tech
+
+    #skip.col-xs-3
+      %a
+        %h5.footer-skip Skip
+
+
+// monthly answer div
+
+#monthly_answer{style: 'display: none;'}
+  %center.activities-top
+    %h3{style: 'font-weight: 300;'} Your hard activities:
+
+    .add-activity-button
+      .input-group.input-group-lg
+        %input{type: 'text', id: 'addition_event', class: 'form-control', placeholder: 'More hard activities here...', aria: {describedby: 'add-addon'}}
+        %span.input-group-addon#add-addon{style: 'background: rgb(3, 122, 255); color: white;'}
+          Add
+    #image_array_numbers
+
+  .row.activities-bottom
+
+  %a.submit-button
+    %p Submit
+
+  %a.delete-button{style: 'display: none;'}
+    %p Delete
+
+
+// thank you page div
+
+#thank_you_page{style: 'display: none;'}
+  %center{style: 'color: white;'}
+    %p{style: 'padding-top: 40%; font-size: 25px;'} Thank you for participating.
+    %a.return_to_main_page
+      %p{style: 'border: 2px solid rgb(250, 250, 250); padding: 2%; font-size: 25px; width: 40%; margin-top: 60%; color: white;'} Done
+

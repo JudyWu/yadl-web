@@ -1,0 +1,25 @@
+{
+  "name": "scream",
+  "description": "Dynamic viewport management for mobile. Manage viewport in different states of device orientation. Scale document to fit viewport. Calculate the dimensions of the minimal iOS 8 view relative to your viewport width.",
+  "version": "2.0.8",
+  "keywords": [
+    "viewport",
+    "fullscreen",
+    "minimal",
+    "ios"
+  ],
+  "license": "BSD-3-Clause",
+  "authors": [
+    "Gajus Kuizinas <gk@anuary.com>"
+  ],
+  "homepage": "https://github.com/gajus/scream",
+  "_release": "2.0.8",
+  "_resolution": {
+    "type": "version",
+    "tag": "2.0.8",
+    "commit": "48a6ab0ac5e43e86934bcaf6e333ed78766fa7f3"
+  },
+  "_source": "git://github.com/gajus/scream.git",
+  "_target": "~2.0.7",
+  "_originalSource": "scream"
+}

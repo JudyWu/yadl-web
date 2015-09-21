@@ -1,0 +1,15 @@
+{
+  "name": "scream",
+  "description": "Dynamic viewport management for mobile. Manage viewport in different states of device orientation. Scale document to fit viewport. Calculate the dimensions of the minimal iOS 8 view relative to your viewport width.",
+  "version": "2.0.7",
+  "keywords": [
+    "viewport",
+    "fullscreen",
+    "minimal",
+    "ios"
+  ],
+  "license": "BSD-3-Clause",
+  "authors": [
+    "Gajus Kuizinas <gk@anuary.com>"
+  ]
+}
