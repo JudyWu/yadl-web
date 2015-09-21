@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8">
@@ -10,66 +10,52 @@
     <!-- Use title if it's in the page YAML frontmatter -->
     <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <link href="stylesheets/normalize.css" rel="stylesheet" type="text/css" /><link href="stylesheets/all.css" rel="stylesheet" type="text/css" /><link href="stylesheets/slick.css" rel="stylesheet" type="text/css" /><link href="stylesheets/slick-theme.css" rel="stylesheet" type="text/css" />
-    <script src="javascripts/all.js" type="text/javascript"></script><script src="javascripts/script.js" type="text/javascript"></script><script src="javascripts/slick.min.js" type="text/javascript"></script>
+
+    <script src="javascripts/script.js" type="text/javascript"></script>
+    <script src="javascripts/slick.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="http://momentjs.com/downloads/moment.js"></script>
-
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
+    <link href="stylesheets/normalize.css" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/all.css" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/slick.css" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/slick-theme.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   </head>
 
   <body class="index">
-    <!-- <div id="brim-mask"> <script src="../javascripts/scream.js"></script>
-    <script src="../javascripts/brim.js"></script>-->
-        <!-- Content displayed to the user when in full view. -->
-    <!-- </div> -->
-    <!-- <div id="brim-main"> -->
-        <!-- Content displayed to the user when in minimal view.  -->
-    <!-- </div> -->
-    <script>
-  $(document).ready(function() {
-    // var token = url('#assess_token');
-    var token;
-    token = '543250de-ba15-4619-a4b4-7ec6bc827cbd';
-    sign_in = document.getElementById('sign_in');
-    monthly_assessment = document.getElementById('monthly_assessment');
-    monthly_answer = document.getElementById('monthly_answer');
-    thank_you_page = document.getElementById('thank_you_page');
-  
-    if (!token) {
-      sign_in.style.display = 'block';
-    }else {
-      monthly_assessment.style.display = 'block';
-    }
-  
-  });
-</script>
-<!-- / sign in div -->
+    <!-- / sign in div -->
 <div id='sign_in' style='display: none;'>
   <div class='sign-in-top'>
     <img class='img-responsive' src='images/logo/YADL_sign_in.png' style='width: 100%;'>
   </div>
-  <center class='sign-in-bottom'>
-    <div class='email-input'>
-      <div class='input-group'>
-        <input aria-describedby='email-addon' class='form-control' id='custome_email_input' placeholder='Enter your email' style='border: 0 !important;' type='email'>
-        <span class='input-group-addon' id='email-addon'>
-          GO!
-        </span>
-      </div>
-    </div>
-    <h4 class='or-line'>
-      <span class='line-center'>
-        OR
-      </span>
-    </h4>
+  <center class='sign-in-bottom' style='margin-top: 10%;'>
     <a class='gmail-login'>
       <p class='log-in-google'>Sign in with Gmail</p>
     </a>
-    <div class='footer text-center' style='margin-top: 20%;'>
+    <div class='footer text-center' style='margin-top: 15%;'>
       <p>@Small Data Lab, CornellTech</p>
+    </div>
+  </center>
+</div>
+<!-- / survey choice section -->
+<div id='survey_options' style='display: none;'>
+  <div class='sign_in_top'>
+    <img class='img-responsive' src='images/logo/YADL_sign_in.png' style='width: 100%;'>
+  </div>
+  <center class='options'>
+    <p style='text-align: center; font-size: 20px; padding-top: 3%;'>Survey Type</p>
+    <div class='row'>
+      <div class='col-xs-6'>
+        <a>
+          <div id='monthly_survey'></div>
+        </a>
+      </div>
+      <div class='col-xs-6'>
+        <a>
+          <div id='daily_survey'></div>
+        </a>
+      </div>
     </div>
   </center>
 </div>
@@ -376,6 +362,9 @@
   <a class='submit-button'>
     <p>Submit</p>
   </a>
+  <a class='delete-button' style='display: none;'>
+    <p>Delete</p>
+  </a>
 </div>
 <!-- / thank you page div -->
 <div id='thank_you_page' style='display: none;'>
@@ -388,43 +377,4 @@
 </div>
 
   </body>
-
-  <script type="text/javascript">
-    // window.addEventListener('DOMContentLoaded', function () {
-    //     var scream,
-    //         brim;
-
-    //     scream = gajus.Scream({
-    //         width: {
-    //             portrait: 320,
-    //             landscape: 640
-    //         }
-    //     });
-
-    //     brim = gajus.Brim({
-    //         viewport: scream
-    //     });
-    // });
-    // $(document).ready(function() {
-
-    //   var token = url("#access_token");
-    //   var dsu = 'https://ohmage-omh.smalldata.io/dsu/'
-
-    //   if(!token)
-    //   {
-    //       window.location.href = dsu + "oauth/authorize?client_id=mobility-visualization&response_type=token";
-    //   }
-    //   else
-    //   {
-    //       $.getJSON(dsu + "oauth/check_token?token=" + token)
-    //       .done(function(data) {
-    //           console.log("Get the token!");
-    //       })
-    //       .fail(function() {
-    //           window.location.href = dsu + "oauth/authorize?client_id=mobility_visualization&response_type=token";
-    //       });
-    //   }
-    // });
-
-</script>
 </html>
