@@ -15,6 +15,12 @@ $(document).ready(function(){
   }
  // monthly-assessment images slick
 
+  $('.log-in-google').click(function(){
+    survey_options.style.display = 'block';
+    sign_in.style.display = ' none';
+    token='7375987458427';
+  })
+
   $('#picture-array').slick({
     // centerMode: true,
     centerPadding: '60px',
