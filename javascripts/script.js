@@ -50,6 +50,8 @@ $(document).ready(function(){
   // survey choices options
   $('#monthly_survey').click(function() {
     monthly_assessment.style.display = 'block';
+    $('#picture .slick-prev').trigger('click');
+    $('#picture-array .slick-prev').trigger('click');
     survey_options.style.display = 'none';
   });
 
