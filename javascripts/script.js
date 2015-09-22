@@ -21,37 +21,38 @@ $(document).ready(function(){
     token='7375987458427';
   })
 
-  $('#picture-array').slick({
-    // centerMode: true,
-    centerPadding: '60px',
-    slidesToShow: 12,
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          arrows: true,
-          // centerMode: true,
-          centerPadding: '40px',
-          slidesToShow: 8
-        }
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          arrows: true,
-          // centerMode: true,
-          centerPadding: '40px',
-          slidesToShow: 8
-        }
-      }
-    ]
-  });
 
   // survey choices options
   $('#monthly_survey').click(function() {
     monthly_assessment.style.display = 'block';
     survey_options.style.display = 'none';
     alert('fdskfsj');
+    $('#picture').slick();
+    $('#picture-array').slick({
+      // centerMode: true,
+      centerPadding: '60px',
+      slidesToShow: 12,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            arrows: true,
+            // centerMode: true,
+            centerPadding: '40px',
+            slidesToShow: 8
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            arrows: true,
+            // centerMode: true,
+            centerPadding: '40px',
+            slidesToShow: 8
+          }
+        }
+      ]
+    });
   });
 
   // monthly-answer add on event
@@ -78,8 +79,6 @@ $(document).ready(function(){
   });
 
   // images slick event and choice section
-
-  $('#picture').slick();
 
   var counter = 0;
   var hard_activity_images = [];
