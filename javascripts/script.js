@@ -26,7 +26,6 @@ $(document).ready(function(){
   $('#monthly_survey').click(function() {
     monthly_assessment.style.display = 'block';
     survey_options.style.display = 'none';
-    alert('fdskfsj');
     $('#picture').slick();
     $('#picture-array').slick({
       // centerMode: true,
