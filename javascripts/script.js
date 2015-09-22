@@ -17,7 +17,7 @@ $(document).ready(function(){
 
   $('.log-in-google').click(function(){
     survey_options.style.display = 'block';
-    sign_in.style.display = ' none';
+    sign_in.style.display = 'none';
     token='7375987458427';
   })
 
