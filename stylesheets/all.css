@@ -79,89 +79,93 @@
   width: 100%;
   height: 100%; }
 
-/* line 89, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+/* line 87, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+#picture {
+  margin-top: -130px; }
+
+/* line 90, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 hr {
   margin-top: 10px !important;
   margin-bottom: 10px !important; }
 
-/* line 93, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+/* line 94, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 .slick-slider {
   margin-bottom: 0 !important; }
 
-/* line 96, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+/* line 97, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 .footer {
   padding-top: 0 !important; }
 
-/* line 99, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+/* line 100, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 .row {
   margin-left: 0 !important;
   margin-right: 0 !important; }
 
-/* line 103, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+/* line 104, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 .rate-area {
   padding-top: 1.3em !important;
   padding-bottom: 1.3em !important; }
 
-/* line 107, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+/* line 108, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 .next {
   z-index: -10 !important; }
 
-/* line 110, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+/* line 111, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 h3 {
   margin-top: 10px !important;
   color: rgba(0, 0, 0, 0.87); }
 
-/* line 123, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+/* line 124, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 #picture-array-number {
   color: #9b9b9b; }
 
-/* line 126, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+/* line 127, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 #easy-choice {
   background-image: url("../images/logo/easy_green_ring.png");
   background-size: cover;
   height: 3em;
   width: 3em; }
 
-/* line 133, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+/* line 134, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 #easy-choice:hover {
   background-image: url("../images/logo/easy_green_check.png");
   background-size: 100% 100%;
   height: 3em;
   width: 3em; }
 
-/* line 139, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+/* line 140, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 #moderate-choice {
   background-image: url("../images/logo/moderate_orange_ring.png");
   background-size: 100% 100%;
   height: 3em;
   width: 3em; }
 
-/* line 146, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+/* line 147, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 #moderate-choice:hover {
   background-image: url("../images/logo/moderate_orange_check.png");
   background-size: 100% 100%;
   height: 3em;
   width: 3em; }
 
-/* line 152, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+/* line 153, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 #hard-choice {
   background-image: url("../images/logo/hard_red_ring.png");
   background-size: 100% 100%;
   height: 3em;
   width: 3em; }
 
-/* line 159, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+/* line 160, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 #hard-choice:hover {
   background-image: url("../images/logo/hard_red_check.png");
   background-size: 100% 100%;
   height: 3em;
   width: 3em; }
 
-/* line 165, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+/* line 166, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 .footer-text {
   color: #979797; }
 
-/* line 168, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+/* line 169, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 .footer-skip {
   color: #037aff;
   border: 0.1em solid #037aff;
@@ -169,28 +173,28 @@ h3 {
   width: 60px;
   text-align: center; }
 
-/* line 175, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+/* line 176, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 #skip {
   margin-top: -8px; }
 
-/* line 178, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+/* line 179, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 .grid-right-border {
   border-right: dotted 0.1em #979797 !important; }
 
-/* line 181, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+/* line 182, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 .rate-area {
   padding-top: 2.5em;
   padding-bottom: 2.5em; }
 
 /* monthly-answer section */
-/* line 187, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+/* line 188, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 .activities-top p {
   display: inline-block;
   font-size: 2em;
   color: #037aff;
   margin: 10px; }
 
-/* line 193, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+/* line 194, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 .monthly-image {
   display: inline-block;
   padding-left: 0 !important;
@@ -198,14 +202,14 @@ h3 {
   position: relative;
   border: 2px solid white; }
 
-/* line 200, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+/* line 201, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 .img-overlay {
   display: inline-block;
   padding-left: 0 !important;
   padding-right: 0 !important;
   position: relative; }
 
-/* line 206, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+/* line 207, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 .overlay {
   z-index: 50;
   position: absolute;
@@ -222,7 +226,7 @@ h3 {
   opacity: 0;
   border: 3px solid #037aff; }
 
-/* line 222, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+/* line 223, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 .overlay img {
   text-align: center;
   top: 40%;
@@ -230,7 +234,7 @@ h3 {
   position: absolute;
   height: 2em; }
 
-/* line 229, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+/* line 230, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 .monthly-image p {
   z-index: 10;
   position: absolute;
@@ -239,31 +243,31 @@ h3 {
   left: 25%;
   top: 40%; }
 
-/* line 237, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+/* line 238, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 .click-overlay {
   opacity: 1; }
 
-/* line 242, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+/* line 243, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 .monthly-image:hover .overlay {
   opacity: 1; }
 
-/* line 245, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+/* line 246, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 .slick-next {
   right: 0 !important; }
 
-/* line 248, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+/* line 249, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 .add-activity-button {
   width: 80%; }
-  /* line 250, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+  /* line 251, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
   .add-activity-button img {
     margin: 10px; }
 
-/* line 254, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+/* line 255, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 .activities-bottom {
   margin-top: 2em;
   margin-bottom: 4em; }
 
-/* line 259, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+/* line 260, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 .delete-button {
   background-color: #ff3b30;
   position: fixed;
@@ -271,17 +275,17 @@ h3 {
   width: 100%;
   z-index: 100;
   height: 4em; }
-  /* line 267, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+  /* line 268, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
   .delete-button p {
     font-size: 1.8em;
     text-align: center;
     padding: 0.5em;
     color: white; }
-  /* line 273, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+  /* line 274, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
   .delete-button:hover {
     border: 1px solid #ff3b30; }
 
-/* line 277, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+/* line 278, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 .submit-button {
   background-color: #037aff;
   position: fixed;
@@ -289,26 +293,26 @@ h3 {
   width: 100%;
   z-index: 100;
   height: 4em; }
-  /* line 285, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+  /* line 286, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
   .submit-button p {
     font-size: 1.8em;
     text-align: center;
     padding: 0.5em;
     color: white; }
-  /* line 291, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+  /* line 292, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
   .submit-button:hover {
     border: 1px solid #037aff; }
 
-/* line 294, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+/* line 295, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 .form-group {
   margin-bottom: 0 !important; }
 
-/* line 297, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+/* line 298, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 .form-control {
   height: 3em !important; }
 
 /* thank you page */
-/* line 301, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+/* line 302, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 #thank_you_page {
   background-color: #037aff;
   width: 100%;
