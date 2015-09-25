@@ -1,6 +1,6 @@
 $(document).ready(function(){
   var token = document.location.hash.substring(14);
-  document.location.hash = '';
+  // document.location.hash = '';
   var sign_in = document.getElementById('sign_in');
   var survey_options = document.getElementById('survey_options');
   var monthly_assessment = document.getElementById('monthly_assessment');
@@ -15,11 +15,6 @@ $(document).ready(function(){
   }
 
   // temporary solution for no Gmail sign in
-  $('.log-in-google').click(function(){
-    survey_options.style.display = 'block';
-    sign_in.style.display = 'none';
-    token='7375987458427';
-  })
 
   // survey choices options
   $('#monthly_survey').on('click', function() {
