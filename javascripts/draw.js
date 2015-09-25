@@ -65,7 +65,7 @@ function postMonthlyActivities(monthly_image_names, monthly_event_names, token) 
       "activity_image": "monthly_image_names",
       "activity_names": "monthly_event_names"
     }
-  };
+  }
 
   $.ajax({
     type: 'POST',
@@ -73,17 +73,28 @@ function postMonthlyActivities(monthly_image_names, monthly_event_names, token) 
     headers: {
       "Authorization": "Bearer " + token,
     },
-    data: JSON.stringify(json_monthly_hard_activities),
-    contentType: "application/json",
-    dataType: "json",
-    success: function(data) {
-      console.log(data);
+    data: {
+      "header": {
+        "schema_id": {
+          "namespace": "omh",
+          "name": "yadl-monthly-survey",
+          "description": "hard activities",
+          "version": "1.0"
+        },
+        "acquisition_provenance": {
+          "source_name": "YADL",
+          "modality": "self-reported"
+        }
+      },
+      "body": {
+        "activity_image": "monthly_image_names",
+        "activity_names": "monthly_event_names"
+      }
     },
-    error: function(data) {
-      console.log('Not posting the data');
-      console.log(data);
-    }
-  });
+    contentType: "application/json",
+    dataType: "json"}).done(function(){
+      console.log('Good');
+    })
 }
  // "creation_date_time": current_time,
 // JSON.stringify({HardActivities: json_monthly_hard_activities}),
