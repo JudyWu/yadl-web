@@ -62,8 +62,8 @@ function postMonthlyActivities(monthly_image_names, monthly_event_names, token) 
       }
     },
     "body": {
-      "activity_image": ["monthly_image_names", "testing"],
-      "activity_names": ["monthly_event_names", "testing too"]
+      "activity_image": "monthly_image_names",
+      "activity_names": "monthly_event_names"
     }
   };
 
