@@ -3,7 +3,7 @@ $(document).ready(function(){
   console.log(url_info);
   var token = url_info.substring(0, 36).toString();
   console.log(token);
-  // document.location.hash = '';
+  document.location.hash = '';
   var sign_in = document.getElementById('sign_in');
   var survey_options = document.getElementById('survey_options');
   var monthly_assessment = document.getElementById('monthly_assessment');
@@ -95,7 +95,7 @@ $(document).ready(function(){
     hard_activity_images.push(counter);
     drawImage(counter, hard_activity_images, monthly_image_names);
     console.log(hard_activity_images);
-    $('#hard-choice-img').css('background-image', 'url("../images/logo/hard_red_check.png")');
+    // $('#hard-choice-img').css('background-image', 'url("../images/logo/hard_red_check.png")');
   });
 
 

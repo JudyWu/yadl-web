@@ -119,11 +119,26 @@ h3 {
 
 /* line 125, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 #easy-choice-img {
+  background-size: 100% 100%;
+  height: 3em;
+  width: 3em; }
+
+/* line 131, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+#easy-choice-img:active {
+  background-image: url("../images/logo/easy_green_check.png");
+  background-size: 100% 100%;
   height: 3em;
   width: 3em; }
 
 /* line 137, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
 #moderate-choice-img {
+  background-size: 100% 100%;
+  height: 3em;
+  width: 3em; }
+
+/* line 143, /Users/judywu/yadl-web-project/source/stylesheets/all.css.sass */
+#moderate-choice-img:active {
+  background-image: url("../images/logo/moderate_orange_check.png");
   background-size: 100% 100%;
   height: 3em;
   width: 3em; }
