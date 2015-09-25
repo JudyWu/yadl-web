@@ -115,7 +115,7 @@ function postMonthlyActivities(monthly_image_names, monthly_event_names, token) 
     headers: {
       "Authorization": "Bearer " + token,
     },
-    data: JSON.stringify(json_monthly_hard_activities),
+    data: json_monthly_hard_activities,
     contentType: "application/json"}).done(function(){
       console.log('Good');
     }).fail(function() {
