@@ -1,29 +1,28 @@
 $(document).ready(function(){
   var token = document.location.hash.substring(14);
-  console.log(token);
   document.location.hash = '';
-  sign_in = document.getElementById('sign_in');
-  survey_options = document.getElementById('survey_options');
-  monthly_assessment = document.getElementById('monthly_assessment');
-  monthly_answer = document.getElementById('monthly_answer');
-  thank_you_page = document.getElementById('thank_you_page');
+  var sign_in = document.getElementById('sign_in');
+  var survey_options = document.getElementById('survey_options');
+  var monthly_assessment = document.getElementById('monthly_assessment');
+  var monthly_answer = document.getElementById('monthly_answer');
+  var thank_you_page = document.getElementById('thank_you_page');
+  var daily_assessment = document.getElementById('daily_assessment');
 
   if (!token) {
     sign_in.style.display = 'block';
   }else {
     survey_options.style.display = 'block';
   }
- // monthly-assessment images slick
 
+  // temporary solution for no Gmail sign in
   $('.log-in-google').click(function(){
     survey_options.style.display = 'block';
     sign_in.style.display = 'none';
     token='7375987458427';
   })
 
-
   // survey choices options
-  $('#monthly_survey').click(function() {
+  $('#monthly_survey').on('click', function() {
     monthly_assessment.style.display = 'block';
     survey_options.style.display = 'none';
     $('#picture').slick();
@@ -54,37 +53,66 @@ $(document).ready(function(){
     });
   });
 
-  // monthly-answer add on event
-  var add_event;
-  var event_names = [];
+  // daily answer
+  $('#daily_survey').on('click', function() {
+    daily_assessment.style.display = 'block';
+    survey_options.style.display = 'none';
+    drawDailyImage();
+    drawDailyEvent();
 
-  $('#addition_event').on('keyup', function() {
-    add_event = this.value;
+    function getMonthlyActivities(token) {
+      $.ajax({
+        type: "GET",
+        url: ohmage_dsu + "dataPoints",
+        headers: {
+          "Authorization": "Bearer " + token,
+        },
+        success: function(data) {
+          console.log(data);
+        },
+        error: function() {
+          console.log('Can;t get data');
+        }
+      });
+    }
+    alert('hkfhsjdfhshf');
   });
 
-  function printEvent() {
-    event_names.push(add_event);
-    var add_event_id = add_event.replace(/\s+/g, '_').toLowerCase();
-    $('.activities-bottom').prepend('<div class="col-xs-4 monthly-image" id="'+ add_event_id +'"></div>');
-    $('#'+ add_event_id).append('<img class="img-responsive" src="images/logo/yadl-background.png" >');
-    $('#'+ add_event_id).append('<p>' + add_event + '</p>');
-    $('#'+ add_event_id).append('<center class="overlay"></center>');
-    $('#'+ add_event_id + ' .overlay').append('<img src="images/logo/yadl-blue-check.png">');
-    $('#addition_event').val("");
-  }
+  // monthly assessment section choice click
+  var counter = 0;
+  var hard_activity_images = [];
+  var monthly_image_names = [];
+
+  $('#easy-choice, #moderate-choice, .footer-skip').on('click', function(){
+    counter ++;
+    choiceClick(counter);
+    drawImage(counter, hard_activity_images, monthly_image_names);
+  });
+
+  $('#hard-choice').click(function() {
+    counter ++;
+    choiceClick(counter);
+    hard_activity_images.push(counter);
+    drawImage(counter, hard_activity_images, monthly_image_names);
+    console.log(hard_activity_images);
+  });
+
+  //drawImage();
+
+  // monthly-answer add on event
+  var add_monthly_event;
+  var monthly_event_names = [];
+
+  $('#addition_event').on('keyup', function() {
+    add_monthly_event = this.value;
+  });
 
   $('#add-addon').click(function() {
-    printEvent();
+    monthly_event_names.push(add_monthly_event);
+    printEvent(add_monthly_event);
   });
 
   // images slick event and choice section
-
-  var counter = 0;
-  var hard_activity_images = [];
-  var all_images = ['1_Bending_M', '2_Standing_up_from_couch_F', '3_Standing_up_M', '4_Running_F', '5_Walking_a_M', '6_Steep_Walking_F', '7_Walking_b_M', '8_Carring_upstair_M', '9_Downstair_M', '10_Upstair_M', '11_Uneven_surface_F', '12_Light_housework_F', '13_Moving_up_in_bed_F', '14_Getting_in_a_car_M', '15_Mopping_F', '16_Bending_M', '17_Biking_M', '18_Carring_downstair_M', '19_Commuting_a', '20_Commuting_b', '21_Cooking_F', '22_Dog_walking_F', '23_Dog_walking_M', '24_Going_shopping', '25_Going_shopping_F', '26_Going shopping_M', '27_Holding_cup_M', '28_Lifting_M', '29_Opening_bottle_M', '30_Opening_door', '31_Opening_jar', '32_Printing_M', '33_Reading_M', '34_Sleeping', '35_Socilizing_a', '36_Socilizing_b', '37_Standing', '38_Standing_working_M', '39_Taking_Bath', '40_Taking_off_Socks', '41_Typing_a', '42_Typing_b', '43_Waiting_for_subway', '44_Walking', '45_Washing_hand_M', '46_Zipping'];
-  var image_names = [];
-  drawImage();
-
   var delete_activities = [];
 
   $('.activities-bottom').on('click', '.monthly-image', function() {
@@ -107,16 +135,15 @@ $(document).ready(function(){
     }
   });
 
-
   $('.delete-button').click(function() {
     $.each(delete_activities, function(index, value){
-      var activity_index = image_names.indexOf(value);
+      var activity_index = monthly_image_names.indexOf(value);
       if (activity_index < 0) {
-        var event_index = event_names.indexOf(value);
-        event_names.splice(event_index, 1);
+        var event_index = monthly_event_names.indexOf(value);
+        monthly_event_names.splice(event_index, 1);
         $('#' + value).remove();
       }else {
-        image_names.splice(activity_index, 1);
+        monthly_image_names.splice(activity_index, 1);
         $('#' + value).remove();
       }
     });
@@ -128,104 +155,12 @@ $(document).ready(function(){
     }
   });
 
-  function choiceClick() {
-    $('#picture .slick-next').trigger('click');
-    $('.img-overlay').find('.click-overlay').parent().next().find('.overlay').addClass('click-overlay');
-    $('#picture-array .slick-next').trigger('click');
-    counter ++;
-    $('.image_number').html(counter + 1 + ' of 46');
-    return counter;
-  }
-
-  function drawImage() {
-    if (counter >= 46) {
-      monthly_answer.style.display = 'block';
-      monthly_assessment.style.display = 'none';
-
-      if (hard_activity_images.length !== 0 ){
-        $.each(hard_activity_images, function(index, value) {
-          image_names.push(all_images[Number(value - 1)]);
-        });
-        $.each(image_names, function(index, value) {
-          $('.activities-bottom').append('<div class="col-xs-4 monthly-image" id="'+ value +'"></div>');
-          $('#'+ value).append('<img class="img-responsive" src="images/survey-images/' + value +'.jpg" >');
-          $('#'+ value).append('<center class="overlay"></center>');
-          $('#'+ value + ' .overlay').append('<img src="images/logo/yadl-blue-check.png">');
-        });
-      }
-    }
-  }
-
-  $('#easy-choice').click(function(){
-    choiceClick();
-    drawImage();
-  });
-
-  $('#moderate-choice').click(function(){
-    choiceClick();
-    drawImage();
-  });
-
-  $('#hard-choice').click(function() {
-    choiceClick();
-    hard_activity_images.push(counter);
-    drawImage();
-    console.log(hard_activity_images);
-  });
-
-  $('.footer-skip').click(function(){
-    choiceClick();
-    drawImage();
-  });
-
-
-
   // monthly-answer POST request after clicking on the submit button
-
-  var json_hard_activities;
-  var ohmage_dsu = "https://ohmage-omh.smalldata.io/dsu/";
 
   $('.submit-button').click(function(){
     thank_you_page.style.display = 'block';
     monthly_answer.style.display = 'none';
-
-    json_hard_activities = {
-      "header": {
-        "creation_date_time": moment().format(),
-        "schema_id": {
-          "namespace": "omh",
-          "name": "yadl-survey",
-          "description": "hard activities",
-          "version": "1.0"
-        },
-        "acquisition_provenance": {
-          "source_name": "YADL",
-          "modality": "self-reported"
-        }
-      },
-      "body": {
-        "activity_image": image_names,
-        "activity_names": event_names
-      }
-    };
-
-    $.ajax({
-      type: "POST",
-      url: ohmage_dsu + "dataPoints",
-      headers: {
-        "Authorization": "Bearer "
-      },
-      data: JSON.stringify({HardActivities: json_hard_activities}),
-      contentType: "application/json",
-      dataType: "json",
-      success: function(data) {
-        console.log(data);
-      },
-      error: function() {
-        console.log('Not posting the data');
-        console.log(json_hard_activities);
-      }
-    });
+    postMonthlyActivities(monthly_image_names, monthly_event_names, token);
   });
 
   $('.return_to_main_page').click(function(){
@@ -234,6 +169,36 @@ $(document).ready(function(){
   });
 });
 
+
+
+/////////////////////////////////////////////////////////////////////////////
+
+// daily answer add on event
+var add_daily_event;
+var daily_event_names = [];
+
+$('#addition_daily_event').on('keyup', function(){
+  add_daily_event = this.value;
+});
+
+$('#add-daily-addon').click(function(){
+  var add_daily_event_id = add_daily_event.replace(/\s+/g, '_').toLowerCase();
+  $('.daily_show_part').prepend('<span class="daily_event" style="line-height: 1.8; word-wrap: normal; display: inline-block;">'+ add_daily_event + '</span>');
+  $('#addition_daily_event').val("");
+  daily_event_names.push(add_daily_event);
+  console.log(daily_event_names);
+});
+
+//daily answer selected event
+$('.daily_render_part').on('click', '.daily-image', drawDailySelectedActivities());
+
+// daily-answer POST request after clicking on the Ok button
+
+$('.daily_submit_button').click(function(){
+  thank_you_page.style.display = 'block';
+  daily_answer.style.display = 'none';
+  postDailyActivities(daily_event_names, daily_image_names, token)
+});
 
 
 
