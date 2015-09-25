@@ -50,7 +50,7 @@ function postMonthlyActivities(monthly_image_names, monthly_event_names, token) 
   var current_time = moment().format();
   var json_monthly_hard_activities = {
     "header": {
-      "creation_date_time": current_time,
+      // "creation_date_time": current_time,
       "schema_id": {
         "namespace": "omh",
         "name": "yadl-monthly-survey",
