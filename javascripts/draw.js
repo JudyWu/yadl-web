@@ -68,12 +68,12 @@ function postMonthlyActivities(monthly_image_names, monthly_event_names, token) 
   };
 
   $.ajax({
-    type: "POST",
-    url: ohmage_dsu + "dataPoints",
+    type: 'POST',
+    url: ohmage_dsu + "dataPoints/",
     headers: {
       "Authorization": "Bearer " + token,
     },
-    data: JSON.stringify({HardActivities: json_monthly_hard_activities}),
+    data: JSON.stringify(json_monthly_hard_activities),
     contentType: "application/json",
     dataType: "json",
     success: function(data) {
