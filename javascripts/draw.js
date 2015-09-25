@@ -133,7 +133,6 @@ function drawDailySelectedActivities() {
 
   if ($(this).children().hasClass('click-overlay')) {
     if ($(this).find("p").length > 0) {
-      alert('text');
       var daily_event = element_id.replace('_', /\s+/g);
       $('.daily_show_part').prepend('<span class="daily_event" style="line-height: 1.8; word-wrap: normal; display: inline-block;" id="'+ element_id+ '_circle">'+ daily_event + '</span>');
       daily_selected_events.push(element_id);
