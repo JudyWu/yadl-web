@@ -122,41 +122,44 @@ h3
 #picture-array-number
   color: $yadl-darker-gray
 
-#easy-choice
-  //background-size: cover
+#easy-choice-img
+  background-size: 100% 100%
   height: 3em
   width: 3em
 
 #easy-choice
-  &:hover
-    background-image: url('../images/logo/easy_green_check.png')
-    background-size: 100% 100%
-    height: 3em
-    width: 3em
+  &:active
+    #easy-choice-img
+      background-image: url('../images/logo/easy_green_check.png')
+      background-size: 100% 100%
+      height: 3em
+      width: 3em
 
-#moderate-choice
+#moderate-choice-img
   background-size: 100% 100%
   height: 3em
   width: 3em
 
 #moderate-choice
-  &:hover
-    background-image: url('../images/logo/moderate_orange_check.png')
-    background-size: 100% 100%
-    height: 3em
-    width: 3em
+  &:active
+    #moderate-choice-img
+      background-image: url('../images/logo/moderate_orange_check.png')
+      background-size: 100% 100%
+      height: 3em
+      width: 3em
 
-#hard-choice
+#hard-choice-img
   background-size: 100% 100%
   height: 3em
   width: 3em
 
 #hard-choice
-  &:hover
-    background-image: url('../images/logo/hard_red_check.png')
-    background-size: 100% 100%
-    height: 3em
-    width: 3em
+  &:active
+    #hard-choice-img
+      background-image: url('../images/logo/hard_red_check.png')
+      background-size: 100% 100%
+      height: 3em
+      width: 3em
 
 .footer-text
   color: $yadl-gray

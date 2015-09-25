@@ -4,14 +4,14 @@ var ohmage_dsu = "https://ohmage-omh.smalldata.io/dsu/";
 // monthly assessment level select
 function choiceClick(counter) {
   $('#picture .slick-next').trigger('click');
-  $('.img-overlay').find('.click-overlay').parent().next().find('.overlay').addClass('click-overlay');
   $('#picture-array .slick-next').trigger('click');
   $('.image_number').html(counter + 1 + ' of 46');
+  $('.slick-current').find('.overlay').addClass('click-overlay');
 }
 
 //monthly answer print image
 function drawImage(counter, hard_activity_images, image_names) {
-  var all_images = ['1_Bending_M', '2_Standing_up_from_couch_F', '3_Standing_up_M', '4_Running_F', '5_Walking_a_M', '6_Steep_Walking_F', '7_Walking_b_M', '8_Carring_upstair_M', '9_Downstair_M', '10_Upstair_M', '11_Uneven_surface_F', '12_Light_housework_F', '13_Moving_up_in_bed_F', '14_Getting_in_a_car_M', '15_Mopping_F', '16_Bending_M', '17_Biking_M', '18_Carring_downstair_M', '19_Commuting_a', '20_Commuting_b', '21_Cooking_F', '22_Dog_walking_F', '23_Dog_walking_M', '24_Going_shopping', '25_Going_shopping_F', '26_Going shopping_M', '27_Holding_cup_M', '28_Lifting_M', '29_Opening_bottle_M', '30_Opening_door', '31_Opening_jar', '32_Printing_M', '33_Reading_M', '34_Sleeping', '35_Socilizing_a', '36_Socilizing_b', '37_Standing', '38_Standing_working_M', '39_Taking_Bath', '40_Taking_off_Socks', '41_Typing_a', '42_Typing_b', '43_Waiting_for_subway', '44_Walking', '45_Washing_hand_M', '46_Zipping'];
+  var all_images = ['1_Bending_M', '2_Standing_up_from_couch_F', '3_Standing_up_M', '4_Running_F', '5_Walking_a_M', '6_Steep_Walking_F', '7_Walking_b_M', '8_Carring_upstair_M', '9_Downstair_M', '10_Upstair_M', '11_Uneven_surface_F', '12_Light_housework_F', '13_Moving_up_in_bed_F', '14_Getting_in_a_car_M', '15_Mopping_F', '16_Bending_M', '17_Biking_M', '18_Carring_downstair_M', '19_Commuting_a', '20_Typing_c', '21_Cooking_F', '22_Dog_walking_F', '23_Dog_walking_M', '24_Going_shopping', '25_Going_shopping_F', '26_Going shopping_M', '27_Holding_cup_M', '28_Lifting_M', '29_Opening_bottle_M', '30_Opening_door', '31_Opening_jar', '32_Printing_M', '33_Reading_M', '34_Sleeping', '35_Socilizing_a', '36_Socilizing_b', '37_Standing', '38_Standing_working_M', '39_Taking_Bath', '40_Taking_off_Socks', '41_Typing_a', '42_Typing_b', '43_Waiting_for_subway', '44_Walking', '45_Washing_hand_M', '46_Zipping'];
   if (counter >= 46) {
     monthly_answer.style.display = 'block';
     monthly_assessment.style.display = 'none';
@@ -50,7 +50,6 @@ function postMonthlyActivities(monthly_image_names, monthly_event_names, token) 
   var current_time = moment().format();
   var json_monthly_hard_activities = {
     "header": {
-      // "creation_date_time": current_time,
       "schema_id": {
         "namespace": "omh",
         "name": "yadl-monthly-survey",
@@ -63,29 +62,41 @@ function postMonthlyActivities(monthly_image_names, monthly_event_names, token) 
       }
     },
     "body": {
-      "activity_image": ['monthly_image_names', 'testing'],
-      "activity_names": ['monthly_event_names', 'testing too']
+      "activity_image": "monthly_image_names",
+      "activity_names": "monthly_event_names"
     }
-  };
+  }
 
   $.ajax({
-    type: "POST",
+    type: 'POST',
     url: ohmage_dsu + "dataPoints",
     headers: {
       "Authorization": "Bearer " + token,
     },
-    data: json_monthly_hard_activities,
-    contentType: "application/json",
-    dataType: "json",
-    success: function(data) {
-      console.log(data);
+    data: {
+      "header": {
+        "schema_id": {
+          "namespace": "omh",
+          "name": "yadl-monthly-survey",
+          "description": "hard activities",
+          "version": "1.0"
+        },
+        "acquisition_provenance": {
+          "source_name": "YADL",
+          "modality": "self-reported"
+        }
+      },
+      "body": {
+        "activity_image": "monthly_image_names",
+        "activity_names": "monthly_event_names"
+      }
     },
-    error: function(data) {
-      console.log('Not posting the data');
-      console.log(data);
-    }
-  });
+    contentType: "application/json",
+    dataType: "json"}).done(function(){
+      console.log('Good');
+    })
 }
+ // "creation_date_time": current_time,
 // JSON.stringify({HardActivities: json_monthly_hard_activities}),
 
 // daily answer section -- draw all monthly image list
@@ -122,7 +133,6 @@ function drawDailySelectedActivities() {
 
   if ($(this).children().hasClass('click-overlay')) {
     if ($(this).find("p").length > 0) {
-      alert('text');
       var daily_event = element_id.replace('_', /\s+/g);
       $('.daily_show_part').prepend('<span class="daily_event" style="line-height: 1.8; word-wrap: normal; display: inline-block;" id="'+ element_id+ '_circle">'+ daily_event + '</span>');
       daily_selected_events.push(element_id);

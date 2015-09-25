@@ -1,9 +1,9 @@
 $(document).ready(function(){
   var url_info = document.location.hash.substring(14);
   console.log(url_info);
-  var token = url_info.substring(0, 36);
+  var token = url_info.substring(0, 36).toString();
   console.log(token);
-  // document.location.hash = '';
+  document.location.hash = '';
   var sign_in = document.getElementById('sign_in');
   var survey_options = document.getElementById('survey_options');
   var monthly_assessment = document.getElementById('monthly_assessment');
@@ -69,11 +69,10 @@ $(document).ready(function(){
           console.log(data);
         },
         error: function() {
-          console.log('Can;t get data');
+          console.log('Could not get data');
         }
       });
     }
-    alert('hkfhsjdfhshf');
   });
 
   // monthly assessment section choice click
@@ -85,15 +84,18 @@ $(document).ready(function(){
     counter ++;
     choiceClick(counter);
     drawImage(counter, hard_activity_images, monthly_image_names);
+    return
   });
 
-  $('#hard-choice').click(function() {
+  $('#hard-choice').on('click', function() {
     counter ++;
     choiceClick(counter);
     hard_activity_images.push(counter);
     drawImage(counter, hard_activity_images, monthly_image_names);
     console.log(hard_activity_images);
   });
+
+
 
   //drawImage();
 
@@ -156,9 +158,12 @@ $(document).ready(function(){
   // monthly-answer POST request after clicking on the submit button
 
   $('.submit-button').click(function(){
+    console.log(monthly_image_names);
+    console.log(monthly_event_names);
+    console.log(token);
+    postMonthlyActivities(monthly_image_names, monthly_event_names, token);
     thank_you_page.style.display = 'block';
     monthly_answer.style.display = 'none';
-    postMonthlyActivities(monthly_image_names, monthly_event_names, token);
   });
 
   $('.return_to_main_page').click(function(){

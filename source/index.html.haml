@@ -1,5 +1,5 @@
 
-- images = { 1 => '1_Bending_M', 2 =>'2_Standing_up_from_couch_F', 3 => '3_Standing_up_M', 4 => '4_Running_F', 5 => '5_Walking_a_M', 6 => '6_Steep_Walking_F', 7 => '7_Walking_b_M', 8 => '8_Carring_upstair_M', 9 => '9_Downstair_M', 10 => '10_Upstair_M', 11 => '11_Uneven_surface_F', 12 => '12_Light_housework_F', 13 => '13_Moving_up_in_bed_F', 14 => '14_Getting_in_a_car_M', 15 => '15_Mopping_F', 16 => '16_Bending_M', 17 => '17_Biking_M', 18 => '18_Carring_downstair_M', 19 => '19_Commuting_a', 20 => '20_Commuting_b', 21 => '21_Cooking_F', 22 => '22_Dog_walking_F', 23 => '23_Dog_walking_M', 24 => '24_Going_shopping', 25 => '25_Going_shopping_F', 26 =>'26_Going_shopping_M', 27 => '27_Holding_cup_M', 28 => '28_Lifting_M', 29 => '29_Opening_bottle_M', 30 => '30_Opening_door', 31 => '31_Opening_jar', 32 => '32_Printing_M', 33 => '33_Reading_M', 34 => '34_Sleeping', 35 => '35_Socilizing_a', 36 => '36_Socilizing_b', 37 => '37_Standing', 38 => '38_Standing_working_M', 39 => '39_Taking_Bath', 40 => '40_Taking_off_Socks', 41 => '41_Typing_a', 42 => '42_Typing_b', 43 => '43_Waiting_for_subway', 44 => '44_Walking', 45 => '45_Washing_hand_M', 46 => '46_Zipping'}
+- images = { 1 => '1_Bending_M', 2 =>'2_Standing_up_from_couch_F', 3 => '3_Standing_up_M', 4 => '4_Running_F', 5 => '5_Walking_a_M', 6 => '6_Steep_Walking_F', 7 => '7_Walking_b_M', 8 => '8_Carring_upstair_M', 9 => '9_Downstair_M', 10 => '10_Upstair_M', 11 => '11_Uneven_surface_F', 12 => '12_Light_housework_F', 13 => '13_Moving_up_in_bed_F', 14 => '14_Getting_in_a_car_M', 15 => '15_Mopping_F', 16 => '16_Bending_M', 17 => '17_Biking_M', 18 => '18_Carring_downstair_M', 19 => '19_Commuting_a', 20 => '20_Typing_c', 21 => '21_Cooking_F', 22 => '22_Dog_walking_F', 23 => '23_Dog_walking_M', 24 => '24_Going_shopping', 25 => '25_Going_shopping_F', 26 =>'26_Going_shopping_M', 27 => '27_Holding_cup_M', 28 => '28_Lifting_M', 29 => '29_Opening_bottle_M', 30 => '30_Opening_door', 31 => '31_Opening_jar', 32 => '32_Printing_M', 33 => '33_Reading_M', 34 => '34_Sleeping', 35 => '35_Socilizing_a', 36 => '36_Socilizing_b', 37 => '37_Standing', 38 => '38_Standing_working_M', 39 => '39_Taking_Bath', 40 => '40_Taking_off_Socks', 41 => '41_Typing_a', 42 => '42_Typing_b', 43 => '43_Waiting_for_subway', 44 => '44_Walking', 45 => '45_Washing_hand_M', 46 => '46_Zipping'}
 
 
 // sign in div
@@ -60,22 +60,22 @@
 
   %hr
   .rate-area.row
-    .col-xs-4.grid-right-border
+    .col-xs-4.grid-right-border#easy-choice
       %center
         %a
-          %img{src:'images/logo/easy_green_ring.png', id:'easy-choice'}
+          %img{src:'images/logo/easy_green_ring.png', id:'easy-choice-img'}
         %h4{style: 'margin-top: 30px; font-weight: 300; color: rgba(0, 0, 0, 0.87);'} Easy
 
-    .col-xs-4.grid-right-border
+    .col-xs-4.grid-right-border#moderate-choice
       %center
         %a
-          %img{src:'images/logo/moderate_orange_ring.png', id:'moderate-choice'}
+          %img{src:'images/logo/moderate_orange_ring.png', id:'moderate-choice-img'}
         %h4{style: 'margin-top: 30px; font-weight: 300; color: rgba(0, 0, 0, 0.87);'} Moderate
 
-    .col-xs-4
+    .col-xs-4#hard-choice
       %center
         %a
-          %img{src:'images/logo/hard_red_ring.png', id:'hard-choice'}
+          %img{src:'images/logo/hard_red_ring.png', id:'hard-choice-img'}
         %h4{style: 'margin-top: 30px; font-weight: 300; color: rgba(0, 0, 0, 0.87);'} Hard
 
   %hr
@@ -91,7 +91,8 @@
 
 #daily_assessment{style: 'display: none;'}
   .row
-    .daily_show_part{style: 'margin: 1.5em;'}
+    %p{style: 'margin: 1em 1.5em; font-size: 18px; color: gray;'} Select the activities that were difficult today
+    .daily_show_part
 
   .daily_add_part{style: 'margin: 1em'}
     .input-group.input-group-lg
