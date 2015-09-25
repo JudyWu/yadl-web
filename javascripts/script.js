@@ -156,9 +156,12 @@ $(document).ready(function(){
   // monthly-answer POST request after clicking on the submit button
 
   $('.submit-button').click(function(){
+    console.log(monthly_image_names);
+    console.log(monthly_event_names);
+    console.log(token);
+    postMonthlyActivities(monthly_image_names, monthly_event_names, token);
     thank_you_page.style.display = 'block';
     monthly_answer.style.display = 'none';
-    postMonthlyActivities(monthly_image_names, monthly_event_names, token);
   });
 
   $('.return_to_main_page').click(function(){

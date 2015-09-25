@@ -50,7 +50,6 @@ function postMonthlyActivities(monthly_image_names, monthly_event_names, token) 
   var current_time = moment().format();
   var json_monthly_hard_activities = {
     "header": {
-      // "creation_date_time": current_time,
       "schema_id": {
         "namespace": "omh",
         "name": "yadl-monthly-survey",
@@ -63,8 +62,8 @@ function postMonthlyActivities(monthly_image_names, monthly_event_names, token) 
       }
     },
     "body": {
-      "activity_image": ['monthly_image_names', 'testing'],
-      "activity_names": ['monthly_event_names', 'testing too']
+      "activity_image": ["monthly_image_names", "testing"],
+      "activity_names": ["monthly_event_names", "testing too"]
     }
   };
 
@@ -74,7 +73,7 @@ function postMonthlyActivities(monthly_image_names, monthly_event_names, token) 
     headers: {
       "Authorization": "Bearer " + token,
     },
-    data: json_monthly_hard_activities,
+    data: JSON.stringify({HardActivities: json_monthly_hard_activities}),
     contentType: "application/json",
     dataType: "json",
     success: function(data) {
@@ -86,6 +85,7 @@ function postMonthlyActivities(monthly_image_names, monthly_event_names, token) 
     }
   });
 }
+ // "creation_date_time": current_time,
 // JSON.stringify({HardActivities: json_monthly_hard_activities}),
 
 // daily answer section -- draw all monthly image list
