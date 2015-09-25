@@ -50,22 +50,43 @@ function postMonthlyActivities(monthly_image_names, monthly_event_names, token) 
   var current_time = moment().format();
   var json_monthly_hard_activities = {
     "header": {
-      "schema_id": {
-        "namespace": "omh",
-        "name": "yadl-monthly-survey",
-        "description": "hard activities",
-        "version": "1.0"
-      },
-      "acquisition_provenance": {
-        "source_name": "YADL",
-        "modality": "self-reported"
-      }
+        "id": token,
+        "creation_date_time": current_time,
+        "schema_id": {
+            "namespace": "omh",
+            "name": "yadl-monthly-survey",
+            "version": "1.0"
+        },
+        "acquisition_provenance": {
+            "source_name": "YADL",
+            "modality": "self-reported"
+        }
     },
     "body": {
-      "activity_image": "monthly_image_names",
-      "activity_names": "monthly_event_names"
+       "activity_image": monthly_image_names,
+       "activity_names": monthly_event_names
+
+      }
     }
-  }
+  // var json_monthly_hard_activities = {
+  //   "header": {
+  //     "schema_id": {
+  //       "namespace": "omh",
+  //       "name": "yadl-monthly-survey",
+  //       "description": "hard activities",
+  //       "version": "1.0"
+  //     },
+  //     "acquisition_provenance": {
+  //       "source_name": "YADL",
+  //       "modality": "self-reported"
+  //     }
+  //   },
+  //   "body": {
+  //     "activity_image": "monthly_image_names",
+  //     "activity_names": "monthly_event_names"
+  //   }
+  // }
+
 
   $.ajax({
     type: 'POST',
@@ -73,27 +94,12 @@ function postMonthlyActivities(monthly_image_names, monthly_event_names, token) 
     headers: {
       "Authorization": "Bearer " + token,
     },
-    data: {
-      "header": {
-        "schema_id": {
-          "namespace": "omh",
-          "name": "yadl-monthly-survey",
-          "description": "hard activities",
-          "version": "1.0"
-        },
-        "acquisition_provenance": {
-          "source_name": "YADL",
-          "modality": "self-reported"
-        }
-      },
-      "body": {
-        "activity_image": "monthly_image_names",
-        "activity_names": "monthly_event_names"
-      }
-    },
+    data: json_monthly_hard_activities,
     contentType: "application/json",
     dataType: "json"}).done(function(){
       console.log('Good');
+    }).fail(function() {
+      console.log('No Good');
     })
 }
  // "creation_date_time": current_time,
