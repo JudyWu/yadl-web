@@ -69,7 +69,7 @@ function postMonthlyActivities(monthly_image_names, monthly_event_names, token) 
 
   $.ajax({
     type: 'POST',
-    url: ohmage_dsu + "dataPoints/",
+    url: ohmage_dsu + "dataPoints",
     headers: {
       "Authorization": "Bearer " + token,
     },
