@@ -82,20 +82,20 @@ $(document).ready(function(){
   var monthly_image_names = [];
 
   $('#easy-choice, #moderate-choice, .footer-skip').on('click', function(){
-    choiceClick(counter);
     counter ++;
+    choiceClick(counter);
     drawImage(counter, hard_activity_images, monthly_image_names);
     return
   });
 
   $('#hard-choice').on('click', function() {
-    $('#hard-choice-img').css('background-image', 'url("../images/logo/hard_red_check.png")');
-    choiceClick(counter);
+    //$('#hard-choice-img').css('background-image', 'url("../images/logo/hard_red_check.png")');
     counter ++;
+    choiceClick(counter);
     hard_activity_images.push(counter);
     drawImage(counter, hard_activity_images, monthly_image_names);
     console.log(hard_activity_images);
-    $('#hard-choice-img').css('background-image', 'url("../images/logo/hard_red_ring.png")');
+    $('#hard-choice-img').css('background-image', 'url("../images/logo/hard_red_check.png")');
   });
 
 
