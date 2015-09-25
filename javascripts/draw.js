@@ -47,9 +47,10 @@ function printEvent(add_event) {
 
 // monthly answer POST
 function postMonthlyActivities(monthly_image_names, monthly_event_names, token) {
+  var current_time = moment().format();
   var json_monthly_hard_activities = {
     "header": {
-      "creation_date_time": moment().format(),
+      "creation_date_time": current_time,
       "schema_id": {
         "namespace": "omh",
         "name": "yadl-monthly-survey",
@@ -62,8 +63,8 @@ function postMonthlyActivities(monthly_image_names, monthly_event_names, token) 
       }
     },
     "body": {
-      "activity_image": monthly_image_names,
-      "activity_names": monthly_event_names
+      "activity_image": ['monthly_image_names', 'testing'],
+      "activity_names": ['monthly_event_names', 'testing too']
     }
   };
 
@@ -73,7 +74,7 @@ function postMonthlyActivities(monthly_image_names, monthly_event_names, token) 
     headers: {
       "Authorization": "Bearer " + token,
     },
-    data: json_monthly_hard_activities,
+    data: JSON.stringify(json_monthly_hard_activities),
     contentType: "application/json",
     dataType: "json",
     success: function(data) {
@@ -81,7 +82,7 @@ function postMonthlyActivities(monthly_image_names, monthly_event_names, token) 
     },
     error: function(data) {
       console.log('Not posting the data');
-      console.log(data);
+      console.log(json_monthly_hard_activities);
     }
   });
 }
@@ -152,9 +153,10 @@ function drawDailySelectedActivities() {
 
 // daily answer POST request
 function postDailyActivities(daily_event_names, daily_image_names, token) {
+  var current_time = moment().format();
   var json_daily_hard_activities = {
     "header": {
-      "creation_date_time": moment().format(),
+      "creation_date_time": current_time,
       "schema_id": {
         "namespace": "omh",
         "name": "yadl-daily-survey",
