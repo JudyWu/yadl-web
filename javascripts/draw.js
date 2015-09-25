@@ -73,19 +73,19 @@ function postMonthlyActivities(monthly_image_names, monthly_event_names, token) 
     headers: {
       "Authorization": "Bearer " + token,
     },
-    data: JSON.stringify({HardActivities: json_monthly_hard_activities}),
+    data: json_monthly_hard_activities,
     contentType: "application/json",
     dataType: "json",
     success: function(data) {
       console.log(data);
     },
-    error: function() {
+    error: function(data) {
       console.log('Not posting the data');
-      console.log(json_monthly_hard_activities);
+      console.log(data);
     }
   });
 }
-
+// JSON.stringify({HardActivities: json_monthly_hard_activities}),
 
 // daily answer section -- draw all monthly image list
 function drawDailyImage() {
@@ -144,6 +144,10 @@ function drawDailySelectedActivities() {
       console.log(daily_selected_images);
     }
   }
+  return {
+    daily_event_names: daily_selected_events,
+    daily_image_names: daily_selected_images
+  }
 }
 
 // daily answer POST request
@@ -174,14 +178,15 @@ function postDailyActivities(daily_event_names, daily_image_names, token) {
     headers: {
       "Authorization": "Bearer " + token
     },
-    data: JSON.stringify({HardActivities: json_daily_hard_activities}),
+    data: json_daily_hard_activities,
     contentType: "application/json",
     dataType: "json",
     success: function(data) {
       console.log(data);
     },
-    error: function() {
+    error: function(data) {
       console.log('Daily data is not posted');
+      console.log(data);
     }
   })
 }

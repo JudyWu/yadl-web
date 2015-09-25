@@ -3,7 +3,7 @@ $(document).ready(function(){
   console.log(url_info);
   var token = url_info.substring(0, 36);
   console.log(token);
-  document.location.hash = '';
+  // document.location.hash = '';
   var sign_in = document.getElementById('sign_in');
   var survey_options = document.getElementById('survey_options');
   var monthly_assessment = document.getElementById('monthly_assessment');
@@ -165,38 +165,38 @@ $(document).ready(function(){
     sign_in.style.display = 'block';
     thank_you_page.style.display = 'none';
   });
+
+  // daily answer add on event
+  var add_daily_event;
+  var daily_event_names = [];
+
+  $('#addition_daily_event').on('keyup', function(){
+    add_daily_event = this.value;
+  });
+
+  $('#add-daily-addon').click(function(){
+    var add_daily_event_id = add_daily_event.replace(/\s+/g, '_').toLowerCase();
+    $('.daily_show_part').prepend('<span class="daily_event" style="line-height: 1.8; word-wrap: normal; display: inline-block;">'+ add_daily_event + '</span>');
+    $('#addition_daily_event').val("");
+    daily_event_names.push(add_daily_event);
+    console.log(daily_event_names);
+  });
+
+  //daily answer selected event
+  $('.daily_render_part').on('click', '.daily-image', drawDailySelectedActivities);
+
+  // daily-answer POST request after clicking on the Ok button
+
+  $('.daily_submit_button').click(function(){
+    thank_you_page.style.display = 'block';
+    daily_assessment.style.display = 'none';
+    var daily_image_names = drawDailySelectedActivities.daily_image_names;
+    var daily_event_names = drawDailySelectedActivities.daily_event_names;
+    postDailyActivities(daily_event_names, daily_image_names, token)
+  });
 });
 
 
-
-/////////////////////////////////////////////////////////////////////////////
-
-// daily answer add on event
-var add_daily_event;
-var daily_event_names = [];
-
-$('#addition_daily_event').on('keyup', function(){
-  add_daily_event = this.value;
-});
-
-$('#add-daily-addon').click(function(){
-  var add_daily_event_id = add_daily_event.replace(/\s+/g, '_').toLowerCase();
-  $('.daily_show_part').prepend('<span class="daily_event" style="line-height: 1.8; word-wrap: normal; display: inline-block;">'+ add_daily_event + '</span>');
-  $('#addition_daily_event').val("");
-  daily_event_names.push(add_daily_event);
-  console.log(daily_event_names);
-});
-
-//daily answer selected event
-$('.daily_render_part').on('click', '.daily-image', drawDailySelectedActivities());
-
-// daily-answer POST request after clicking on the Ok button
-
-$('.daily_submit_button').click(function(){
-  thank_you_page.style.display = 'block';
-  daily_answer.style.display = 'none';
-  postDailyActivities(daily_event_names, daily_image_names, token)
-});
 
 
 
