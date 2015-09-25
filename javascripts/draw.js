@@ -51,8 +51,8 @@ function postMonthlyActivities(monthly_image_names, monthly_event_names, token) 
   var current_time = moment().format();
   var json_monthly_hard_activities = {
     "header": {
-        "id": token,
-        "creation_date_time": current_time,
+        "id": "f73606ce-4b0d-48ae-b6fa-4e7d65af2493",
+        "creation_date_time": "2015-09-25T12:20:19-04:00",
         "schema_id": {
             "namespace": "omh",
             "name": "yadl-monthly-survey",
@@ -68,7 +68,7 @@ function postMonthlyActivities(monthly_image_names, monthly_event_names, token) 
         "activity_image": ["sleeping", "commuting"]
 
     }
-    }
+  }
   // var json_monthly_hard_activities = {
   //   "header": {
   //       "id": token,
