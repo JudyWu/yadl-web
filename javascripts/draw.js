@@ -74,7 +74,7 @@ function postMonthlyActivities(monthly_image_names, monthly_event_names, token) 
     headers: {
       "Authorization": "Bearer " + token,
     },
-    data: JSON.stringify(json_monthly_hard_activities),
+    data: json_monthly_hard_activities,
     contentType: "application/json",
     dataType: "json",
     success: function(data) {
@@ -82,7 +82,7 @@ function postMonthlyActivities(monthly_image_names, monthly_event_names, token) 
     },
     error: function(data) {
       console.log('Not posting the data');
-      console.log(json_monthly_hard_activities);
+      console.log(data);
     }
   });
 }
