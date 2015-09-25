@@ -69,11 +69,10 @@ $(document).ready(function(){
           console.log(data);
         },
         error: function() {
-          console.log('Can;t get data');
+          console.log('Could not get data');
         }
       });
     }
-    alert('hkfhsjdfhshf');
   });
 
   // monthly assessment section choice click
@@ -89,13 +88,11 @@ $(document).ready(function(){
   });
 
   $('#hard-choice').on('click', function() {
-    //$('#hard-choice-img').css('background-image', 'url("../images/logo/hard_red_check.png")');
     counter ++;
     choiceClick(counter);
     hard_activity_images.push(counter);
     drawImage(counter, hard_activity_images, monthly_image_names);
     console.log(hard_activity_images);
-    // $('#hard-choice-img').css('background-image', 'url("../images/logo/hard_red_check.png")');
   });
 
 
