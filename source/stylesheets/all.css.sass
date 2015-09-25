@@ -67,13 +67,11 @@ $yadl-red: rgb(255, 59, 48)
 
 /* survey options */
 #monthly_survey
-  background-image: url('../images/logo/monthly_survey_ring.png')
   background-size: cover
   height: 5.1em
   width: 5.1em
 
 #daily_survey
-  background-image: url('../images/logo/daily_survey_ring.png')
   background-size: cover
   height: 5.1em
   width: 5.1em
@@ -125,8 +123,7 @@ h3
   color: $yadl-darker-gray
 
 #easy-choice
-  background-image: url('../images/logo/easy_green_ring.png')
-  background-size: cover
+  //background-size: cover
   height: 3em
   width: 3em
 
@@ -138,7 +135,6 @@ h3
     width: 3em
 
 #moderate-choice
-  background-image: url('../images/logo/moderate_orange_ring.png')
   background-size: 100% 100%
   height: 3em
   width: 3em
@@ -151,7 +147,6 @@ h3
     width: 3em
 
 #hard-choice
-  background-image: url('../images/logo/hard_red_ring.png')
   background-size: 100% 100%
   height: 3em
   width: 3em
@@ -183,6 +178,13 @@ h3
   padding-top: 2.5em
   padding-bottom: 2.5em
 
+/* daily-answer section */
+.daily_event
+  border: 3px solid $yadl-blue
+  padding: 1em
+  margin: 3px
+  color: $yadl-blue
+  border-radius: 40px
 
 /* monthly-answer section */
 .activities-top p
@@ -191,7 +193,7 @@ h3
   color: rgb(3, 122, 255)
   margin: 10px
 
-.monthly-image
+.monthly-image, .daily-image
   display: inline-block
   padding-left: 0 !important
   padding-right: 0 !important
@@ -227,7 +229,7 @@ h3
   position: absolute
   height: 2em
 
-.monthly-image p
+.monthly-image p, .daily-image p
   z-index: 10
   position: absolute
   color: $yadl-blue
@@ -275,7 +277,7 @@ h3
     border: 1px solid $yadl-red
 
 
-.submit-button
+.submit-button, .daily_submit_button
   background-color: $yadl-blue
   position: fixed
   bottom: 0
@@ -291,6 +293,8 @@ h3
 
   &:hover
     border: 1px solid $yadl-blue
+
+
 
 .form-group
   margin-bottom: 0 !important

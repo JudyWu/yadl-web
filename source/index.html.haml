@@ -9,7 +9,7 @@
     %img{src: 'images/logo/YADL_sign_in.png', class: 'img-responsive', style: 'width: 100%;'}
 
   %center.sign-in-bottom{style: 'margin-top: 10%;'}
-    %a.gmail-login
+    %a.gmail-login{href: 'https://ohmage-omh.smalldata.io/dsu/oauth/authorize?client_id=yadl-ui&response_type=token&gmailOnly=1'}
       %p.log-in-google Sign in with Gmail
 
     .footer.text-center{style: 'margin-top: 15%;'}
@@ -26,11 +26,10 @@
     .row
       .col-xs-6
         %a
-          #monthly_survey
+          %img{src:'images/logo/monthly_survey_ring.png', id:'monthly_survey'}
       .col-xs-6
         %a
-          #daily_survey
-
+          %img{src:'images/logo/daily_survey_ring.png', id:'daily_survey'}
 
 // monthly assessment div
 
@@ -64,19 +63,19 @@
     .col-xs-4.grid-right-border
       %center
         %a
-          #easy-choice
+          %img{src:'images/logo/easy_green_ring.png', id:'easy-choice'}
         %h4{style: 'margin-top: 30px; font-weight: 300; color: rgba(0, 0, 0, 0.87);'} Easy
 
     .col-xs-4.grid-right-border
       %center
         %a
-          #moderate-choice
+          %img{src:'images/logo/moderate_orange_ring.png', id:'moderate-choice'}
         %h4{style: 'margin-top: 30px; font-weight: 300; color: rgba(0, 0, 0, 0.87);'} Moderate
 
     .col-xs-4
       %center
         %a
-          #hard-choice
+          %img{src:'images/logo/hard_red_ring.png', id:'hard-choice'}
         %h4{style: 'margin-top: 30px; font-weight: 300; color: rgba(0, 0, 0, 0.87);'} Hard
 
   %hr
@@ -87,6 +86,24 @@
     #skip.col-xs-3
       %a
         %h5.footer-skip Skip
+
+// daily assessment div
+
+#daily_assessment{style: 'display: none;'}
+  .row
+    .daily_show_part{style: 'margin: 1.5em;'}
+
+  .daily_add_part{style: 'margin: 1em'}
+    .input-group.input-group-lg
+      %span.input-group-addon#add-daily-addon{style: 'background: rgb(3, 122, 255); color: white; background-color: white; border: 0 !important;'}
+        %img{src: 'images/logo/add-blue-circle.png', style: 'height: 2em;'}
+      %input{type: 'text', id: 'addition_daily_event', class: 'form-control', placeholder: 'More hard activities here...', aria: {describedby: 'add-addon'}, style: 'border: 0 !important;'}
+
+  .daily_render_part.row
+
+  %a.daily_submit_button
+    %p OK
+
 
 
 // monthly answer div
