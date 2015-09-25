@@ -47,6 +47,7 @@ function printEvent(add_event) {
 
 // monthly answer POST
 function postMonthlyActivities(monthly_image_names, monthly_event_names, token) {
+  var token = token.toString();
   var current_time = moment().format();
   var json_monthly_hard_activities = {
     "header": {
@@ -63,11 +64,31 @@ function postMonthlyActivities(monthly_image_names, monthly_event_names, token) 
         }
     },
     "body": {
-       "activity_image": monthly_image_names,
-       "activity_names": monthly_event_names
+        "activity_name": ["walking","jumping"],
+        "activity_image": ["sleeping", "commuting"]
 
-      }
     }
+    }
+  // var json_monthly_hard_activities = {
+  //   "header": {
+  //       "id": token,
+  //       "creation_date_time": current_time,
+  //       "schema_id": {
+  //           "namespace": "omh",
+  //           "name": "yadl-monthly-survey",
+  //           "version": "1.0"
+  //       },
+  //       "acquisition_provenance": {
+  //           "source_name": "YADL",
+  //           "modality": "self-reported"
+  //       }
+  //   },
+  //   "body": {
+  //      "activity_image": monthly_image_names,
+  //      "activity_names": monthly_event_names
+
+  //     }
+  //   }
   // var json_monthly_hard_activities = {
   //   "header": {
   //     "schema_id": {
@@ -94,9 +115,8 @@ function postMonthlyActivities(monthly_image_names, monthly_event_names, token) 
     headers: {
       "Authorization": "Bearer " + token,
     },
-    data: json_monthly_hard_activities,
-    contentType: "application/json",
-    dataType: "json"}).done(function(){
+    data: JSON.stringify(json_monthly_hard_activities),
+    contentType: "application/json"}).done(function(){
       console.log('Good');
     }).fail(function() {
       console.log('No Good');
