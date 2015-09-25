@@ -82,18 +82,23 @@ $(document).ready(function(){
   var monthly_image_names = [];
 
   $('#easy-choice, #moderate-choice, .footer-skip').on('click', function(){
-    counter ++;
     choiceClick(counter);
+    counter ++;
     drawImage(counter, hard_activity_images, monthly_image_names);
+    return
   });
 
-  $('#hard-choice').click(function() {
-    counter ++;
+  $('#hard-choice').on('click', function() {
+    $('#hard-choice-img').css('background-image', 'url("../images/logo/hard_red_check.png")');
     choiceClick(counter);
+    counter ++;
     hard_activity_images.push(counter);
     drawImage(counter, hard_activity_images, monthly_image_names);
     console.log(hard_activity_images);
+    $('#hard-choice-img').css('background-image', 'url("../images/logo/hard_red_ring.png")');
   });
+
+
 
   //drawImage();
 
