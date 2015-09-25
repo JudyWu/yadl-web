@@ -47,8 +47,8 @@ function printEvent(add_event) {
 
 // monthly answer POST
 function postMonthlyActivities(monthly_image_names, monthly_event_names, token) {
-  var token = token.toString();
-  var current_time = moment().format();
+  // var token = token.toString();
+  // var current_time = moment().format();
   // var json_monthly_hard_activities =
   // var json_monthly_hard_activities = {
   //   "header": {
@@ -94,7 +94,7 @@ function postMonthlyActivities(monthly_image_names, monthly_event_names, token) 
     type: 'POST',
     url: ohmage_dsu + "dataPoints",
     headers: {
-      "Authorization": "Bearer " + token,
+      "Authorization": "Bearer f73606ce-4b0d-48ae-b6fa-4e7d65af2495",
     },
     data: {
     "header": {
