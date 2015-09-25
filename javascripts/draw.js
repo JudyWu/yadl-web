@@ -49,26 +49,7 @@ function printEvent(add_event) {
 function postMonthlyActivities(monthly_image_names, monthly_event_names, token) {
   var token = token.toString();
   var current_time = moment().format();
-  var json_monthly_hard_activities = {
-    "header": {
-        "id": "f73606ce-4b0d-48ae-b6fa-4e7d65af2493",
-        "creation_date_time": "2015-09-25T12:20:19-04:00",
-        "schema_id": {
-            "namespace": "omh",
-            "name": "yadl-monthly-survey",
-            "version": "1.0"
-        },
-        "acquisition_provenance": {
-            "source_name": "YADL",
-            "modality": "self-reported"
-        }
-    },
-    "body": {
-        "activity_name": ["walking","jumping"],
-        "activity_image": ["sleeping", "commuting"]
-
-    }
-  }
+  // var json_monthly_hard_activities =
   // var json_monthly_hard_activities = {
   //   "header": {
   //       "id": token,
@@ -115,7 +96,26 @@ function postMonthlyActivities(monthly_image_names, monthly_event_names, token) 
     headers: {
       "Authorization": "Bearer " + token,
     },
-    data: json_monthly_hard_activities,
+    data: {
+    "header": {
+        "id": "f73606ce-4b0d-48ae-b6fa-4e7d65af2493",
+        "creation_date_time": "2015-09-25T12:20:19-04:00",
+        "schema_id": {
+            "namespace": "omh",
+            "name": "yadl-monthly-survey",
+            "version": "1.0"
+        },
+        "acquisition_provenance": {
+            "source_name": "YADL",
+            "modality": "self-reported"
+        }
+    },
+    "body": {
+        "activity_name": ["walking","jumping"],
+        "activity_image": ["sleeping", "commuting"]
+
+    }
+  },
     contentType: "application/json"}).done(function(){
       console.log('Good');
     }).fail(function() {
