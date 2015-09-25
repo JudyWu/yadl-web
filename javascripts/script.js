@@ -1,6 +1,9 @@
 $(document).ready(function(){
-  var token = document.location.hash.substring(14);
-  // document.location.hash = '';
+  var url_info = document.location.hash.substring(14);
+  console.log(url_info);
+  var token = url_info.substring(0, 36);
+  console.log(token);
+  document.location.hash = '';
   var sign_in = document.getElementById('sign_in');
   var survey_options = document.getElementById('survey_options');
   var monthly_assessment = document.getElementById('monthly_assessment');
