@@ -66,7 +66,7 @@ function postMonthlyActivities(monthly_image_names, monthly_event_names, token) 
       }
   },
   "body": {
-     "activity_image": monthly_image_names,
+     "activity_images": monthly_image_names,
      "activity_names": monthly_event_names
 
     }
@@ -100,7 +100,7 @@ function drawDailyImage() {
       "Authorization": "Bearer " + token
     },
     success: function(data) {
-      var daily_image_list = data["body"]["activity_image"];
+      var daily_image_list = data["body"]["activity_images"];
       $.each(daily_image_list, function(index, value) {
         $('.daily_render_part').prepend('<div class="col-xs-4 daily-image" id="'+ value +'"></div>');
         $('#'+ value).append('<img class="img-responsive" src="images/survey-images/' + value +'.jpg" >');
