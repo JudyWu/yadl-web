@@ -2,7 +2,7 @@ $(document).ready(function(){
   // var url_info = document.location.hash.substring(14);
   // console.log(url_info);
   // token = url_info.substring(0, 36).toString();
-  token = url('#assess_token');
+  token = url('#access_token');
   username = url('#username');
   // username =
   console.log(token);
