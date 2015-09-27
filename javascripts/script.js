@@ -19,6 +19,16 @@ $(document).ready(function(){
     sign_in.style.display = 'block';
   }else {
     survey_options.style.display = 'block';
+    $.getJSON(ohmage_dsu + "oauth/check_token?token=" + token)
+      .done(function(data) {
+          console.log("Get the token!");
+          var username = data["user_name"];
+          console.log(username);
+      })
+      .fail(function() {
+          window.location.href = ohmage_dsu + "oauth/authorize?client_id=yadl-ui&response_type=token";
+          console.log('no name');
+      });
   }
 
   // temporary solution for no Gmail sign in
