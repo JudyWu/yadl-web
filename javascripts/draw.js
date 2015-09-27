@@ -31,7 +31,6 @@ function drawImage(counter, hard_activity_images, image_names) {
   }
 }
 
-
 // monthly answer add on
 function printEvent(add_event) {
   var add_event_id = add_event.replace(/\s+/g, '_').toLowerCase();
@@ -95,7 +94,7 @@ function postMonthlyActivities(monthly_image_names, monthly_event_names, token) 
 function drawDailyImage() {
   $.ajax({
     type: 'GET',
-    url: ohmage_dsu + "dataPoints/4bba98c2-bc2a-4e8c-b218-50a141d993ce",
+    url: ohmage_dsu + "dataPoints/" + ,
     headers: {
       "Authorization": "Bearer " + token
     },
