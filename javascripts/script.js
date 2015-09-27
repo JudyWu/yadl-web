@@ -60,7 +60,7 @@ $(document).ready(function(){
 
     function getMonthlyActivities(token) {
       $.ajax({
-        type: "GET",
+        type: 'GET',
         url: ohmage_dsu + "dataPoints",
         headers: {
           "Authorization": "Bearer " + token,

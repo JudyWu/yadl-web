@@ -92,12 +92,25 @@ function postMonthlyActivities(monthly_image_names, monthly_event_names, token) 
 
 // daily answer section -- draw all monthly image list
 function drawDailyImage() {
-  var daily_image_list = ['1_Bending_M', '2_Standing_up_from_couch_F', '3_Standing_up_M','4_Running_F', '5_Walking_a_M', '6_Steep_Walking_F', '7_Walking_b_M', '8_Carring_upstair_M', '9_Downstair_M', '10_Upstair_M', '11_Uneven_surface_F'];
-  $.each(daily_image_list, function(index, value) {
-    $('.daily_render_part').prepend('<div class="col-xs-4 daily-image" id="'+ value +'"></div>');
-    $('#'+ value).append('<img class="img-responsive" src="images/survey-images/' + value +'.jpg" >');
-    $('#'+ value).append('<center class="overlay"></center>');
-    $('#'+ value + ' .overlay').append('<img src="images/logo/yadl-blue-check.png">');
+  $.ajax({
+    type: 'GET',
+    url: ohmage_dsu + "dataPoints/4bba98c2-bc2a-4e8c-b218-50a141d993ce",
+    headers: {
+      "Authorization": "Bearer " + token
+    },
+    success: function(data) {
+      var daily_image_list = data["body"]["activity_image"];
+      $.each(daily_image_list, function(index, value) {
+        $('.daily_render_part').prepend('<div class="col-xs-4 daily-image" id="'+ value +'"></div>');
+        $('#'+ value).append('<img class="img-responsive" src="images/survey-images/' + value +'.jpg" >');
+        $('#'+ value).append('<center class="overlay"></center>');
+        $('#'+ value + ' .overlay').append('<img src="images/logo/yadl-blue-check.png">');
+      });
+      console.log('Good');
+    },
+    error: function(data) {
+      console.log('No good');
+    }
   });
 }
 
@@ -152,6 +165,13 @@ function drawDailySelectedActivities() {
   }
 }
 
+// daily answer GET request
+function getDataPointId(username, data_type) {
+  return ["yadl-monthly-survey", username].join("-");
+}
+
+
+
 // daily answer POST request
 function postDailyActivities(daily_event_names, daily_image_names, token) {
   var current_time = moment().format();
@@ -170,7 +190,7 @@ function postDailyActivities(daily_event_names, daily_image_names, token) {
       }
     },
     "body": {
-      "activity_image": daily_image_names,
+      "activity_images": daily_image_names,
       "activity_names": daily_event_names
     }
   }
