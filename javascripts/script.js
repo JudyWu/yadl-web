@@ -56,7 +56,7 @@ $(document).ready(function(){
     daily_assessment.style.display = 'block';
     survey_options.style.display = 'none';
     drawDailyImage();
-    drawDailyEvent();
+    // drawDailyEvent();
 
     function getMonthlyActivities(token) {
       $.ajax({

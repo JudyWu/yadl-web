@@ -128,17 +128,17 @@ function drawDailyImage() {
 }
 
 // daily answer section -- draw all monthly event list
-function drawDailyEvent() {
-  var daily_event_list = ['thinking', 'talking', 'jumping'];
-  $.each(daily_event_list, function(index, value) {
-    var daily_event_id = value.replace(/\s+/g, '_').toLowerCase();
-    $('.daily_render_part').prepend('<div class="col-xs-4 daily-image" id="'+ daily_event_id +'"></div>');
-    $('#'+ daily_event_id).append('<img class="img-responsive" src="images/logo/yadl-background.png" >');
-    $('#'+ daily_event_id).append('<p>' + value + '</p>');
-    $('#'+ daily_event_id).append('<center class="overlay"></center>');
-    $('#'+ daily_event_id + ' .overlay').append('<img src="images/logo/yadl-blue-check.png">');
-  });
-}
+// function drawDailyEvent() {
+//   var daily_event_list = ['thinking', 'talking', 'jumping'];
+//   $.each(daily_event_list, function(index, value) {
+//     var daily_event_id = value.replace(/\s+/g, '_').toLowerCase();
+//     $('.daily_render_part').prepend('<div class="col-xs-4 daily-image" id="'+ daily_event_id +'"></div>');
+//     $('#'+ daily_event_id).append('<img class="img-responsive" src="images/logo/yadl-background.png" >');
+//     $('#'+ daily_event_id).append('<p>' + value + '</p>');
+//     $('#'+ daily_event_id).append('<center class="overlay"></center>');
+//     $('#'+ daily_event_id + ' .overlay').append('<img src="images/logo/yadl-blue-check.png">');
+//   });
+// }
 
 // daily answer section -- draw all selected event and image
 function drawDailySelectedActivities() {
