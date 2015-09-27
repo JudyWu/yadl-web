@@ -47,12 +47,13 @@ function printEvent(add_event) {
 
 // monthly answer POST
 function postMonthlyActivities(monthly_image_names, monthly_event_names, token) {
-  var token = token.toString();
+  // var token = token.toString();
   var current_time = moment().format();
+  var post_id = guid();
 
   var json_monthly_hard_activities = {
     "header": {
-      "id": token,
+      "id": post_id,
       "creation_date_time": current_time,
       "schema_id": {
           "namespace": "omh",
@@ -127,19 +128,6 @@ function drawDailyImage() {
   });
 }
 
-// daily answer section -- draw all monthly event list
-// function drawDailyEvent() {
-//   var daily_event_list = ['thinking', 'talking', 'jumping'];
-//   $.each(daily_event_list, function(index, value) {
-//     var daily_event_id = value.replace(/\s+/g, '_').toLowerCase();
-//     $('.daily_render_part').prepend('<div class="col-xs-4 daily-image" id="'+ daily_event_id +'"></div>');
-//     $('#'+ daily_event_id).append('<img class="img-responsive" src="images/logo/yadl-background.png" >');
-//     $('#'+ daily_event_id).append('<p>' + value + '</p>');
-//     $('#'+ daily_event_id).append('<center class="overlay"></center>');
-//     $('#'+ daily_event_id + ' .overlay').append('<img src="images/logo/yadl-blue-check.png">');
-//   });
-// }
-
 // daily answer section -- draw all selected event and image
 function drawDailySelectedActivities() {
   var element_id = $(this).attr('id');
@@ -183,18 +171,17 @@ function getDataPointId(username, data_type) {
   return ["yadl-monthly-survey", username].join("-");
 }
 
-
-
 // daily answer POST request
 function postDailyActivities(daily_event_names, daily_image_names, token) {
   var current_time = moment().format();
+  var post_id = guid();
   var json_daily_hard_activities = {
     "header": {
+      "id": post_id,
       "creation_date_time": current_time,
       "schema_id": {
         "namespace": "omh",
         "name": "yadl-daily-survey",
-        "description": "hard activities",
         "version": "1.0"
       },
       "acquisition_provenance": {
@@ -214,16 +201,24 @@ function postDailyActivities(daily_event_names, daily_image_names, token) {
     headers: {
       "Authorization": "Bearer " + token
     },
-    data: json_daily_hard_activities,
+    data:JSON.stringify(json_daily_hard_activities),
     contentType: "application/json",
-    dataType: "json",
     success: function(data) {
-      console.log(data);
+      console.log('Good');
     },
-    error: function(data) {
-      console.log('Daily data is not posted');
-      console.log(data);
+    error: function(e, status, error) {
+      console.log(e);
     }
   })
+}
+
+function guid() {
+  function s4() {
+    return Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
+  }
+  return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+    s4() + '-' + s4() + s4() + s4();
 }
 ;

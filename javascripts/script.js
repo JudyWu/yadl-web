@@ -57,22 +57,6 @@ $(document).ready(function(){
     survey_options.style.display = 'none';
     drawDailyImage();
     // drawDailyEvent();
-
-    function getMonthlyActivities(token) {
-      $.ajax({
-        type: 'GET',
-        url: ohmage_dsu + "dataPoints",
-        headers: {
-          "Authorization": "Bearer " + token,
-        },
-        success: function(data) {
-          console.log(data);
-        },
-        error: function() {
-          console.log('Could not get data');
-        }
-      });
-    }
   });
 
   // monthly assessment section choice click
