@@ -48,7 +48,8 @@ function printEvent(add_event) {
 function postMonthlyActivities(monthly_image_names, monthly_event_names, token) {
   // var token = token.toString();
   var current_time = moment().format();
-  var post_id = guid();
+  // var post_id = guid();
+  var post_id = "yadl-daily-survey" + username + current_time;
 
   var json_monthly_hard_activities = {
     "header": {
