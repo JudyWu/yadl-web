@@ -99,14 +99,27 @@ function drawDailyImage() {
       "Authorization": "Bearer " + token
     },
     success: function(data) {
-      var daily_image_list = data["body"]["activity_image"];
+      var daily_image_list = data["body"]["activity_images"];
       $.each(daily_image_list, function(index, value) {
         $('.daily_render_part').prepend('<div class="col-xs-4 daily-image" id="'+ value +'"></div>');
         $('#'+ value).append('<img class="img-responsive" src="images/survey-images/' + value +'.jpg" >');
         $('#'+ value).append('<center class="overlay"></center>');
         $('#'+ value + ' .overlay').append('<img src="images/logo/yadl-blue-check.png">');
       });
-      console.log('Good');
+      console.log('Good image');
+
+
+      var daily_event_list = data["body"]["activity_names"];
+      $.each(daily_event_list, function(index, value) {
+        var daily_event_id = value.replace(/\s+/g, '_').toLowerCase();
+        $('.daily_render_part').prepend('<div class="col-xs-4 daily-image" id="'+ daily_event_id +'"></div>');
+        $('#'+ daily_event_id).append('<img class="img-responsive" src="images/logo/yadl-background.png" >');
+        $('#'+ daily_event_id).append('<p>' + value + '</p>');
+        $('#'+ daily_event_id).append('<center class="overlay"></center>');
+        $('#'+ daily_event_id + ' .overlay').append('<img src="images/logo/yadl-blue-check.png">');
+      });
+      console.log('Good events');
+
     },
     error: function(data) {
       console.log('No good');
