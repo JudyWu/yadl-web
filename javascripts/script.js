@@ -1,7 +1,7 @@
 $(document).ready(function(){
   var url_info = document.location.hash.substring(14);
   console.log(url_info);
-  var token = url_info.substring(0, 36).toString();
+  token = url_info.substring(0, 36).toString();
   console.log(token);
   // document.location.hash = '';
   var sign_in = document.getElementById('sign_in');
