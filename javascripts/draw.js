@@ -47,83 +47,48 @@ function printEvent(add_event) {
 
 // monthly answer POST
 function postMonthlyActivities(monthly_image_names, monthly_event_names, token) {
-  // var token = token.toString();
-  // var current_time = moment().format();
-  // var json_monthly_hard_activities =
-  // var json_monthly_hard_activities = {
-  //   "header": {
-  //       "id": token,
-  //       "creation_date_time": current_time,
-  //       "schema_id": {
-  //           "namespace": "omh",
-  //           "name": "yadl-monthly-survey",
-  //           "version": "1.0"
-  //       },
-  //       "acquisition_provenance": {
-  //           "source_name": "YADL",
-  //           "modality": "self-reported"
-  //       }
-  //   },
-  //   "body": {
-  //      "activity_image": monthly_image_names,
-  //      "activity_names": monthly_event_names
+  var token = token.toString();
+  var current_time = moment().format();
 
-  //     }
-  //   }
-  // var json_monthly_hard_activities = {
-  //   "header": {
-  //     "schema_id": {
-  //       "namespace": "omh",
-  //       "name": "yadl-monthly-survey",
-  //       "description": "hard activities",
-  //       "version": "1.0"
-  //     },
-  //     "acquisition_provenance": {
-  //       "source_name": "YADL",
-  //       "modality": "self-reported"
-  //     }
-  //   },
-  //   "body": {
-  //     "activity_image": "monthly_image_names",
-  //     "activity_names": "monthly_event_names"
-  //   }
-  // }
+  var json_monthly_hard_activities = {
+    "header": {
+      "id": token,
+      "creation_date_time": current_time,
+      "schema_id": {
+          "namespace": "omh",
+          "name": "yadl-monthly-survey",
+          "version": "1.0"
+      },
+      "acquisition_provenance": {
+          "source_name": "YADL",
+          "modality": "self-reported"
+      }
+  },
+  "body": {
+     "activity_image": monthly_image_names,
+     "activity_names": monthly_event_names
 
+    }
+  }
 
   $.ajax({
     type: 'POST',
     url: ohmage_dsu + "dataPoints",
     headers: {
-      "Authorization": "Bearer f73606ce-4b0d-48ae-b6fa-4e7d65af2495",
+      "Authorization": "Bearer " + token,
     },
-    data: {
-    "header": {
-        "id": "f73606ce-4b0d-48ae-b6fa-4e7d65af2493",
-        "creation_date_time": "2015-09-25T12:20:19-04:00",
-        "schema_id": {
-            "namespace": "omh",
-            "name": "yadl-monthly-survey",
-            "version": "1.0"
-        },
-        "acquisition_provenance": {
-            "source_name": "YADL",
-            "modality": "self-reported"
-        }
-    },
-    "body": {
-        "activity_name": ["walking","jumping"],
-        "activity_image": ["sleeping", "commuting"]
+    data: JSON.stringify(json_monthly_hard_activities),
 
-    }
-  },
-    contentType: "application/json"}).done(function(){
+    contentType: "application/json",
+    success: function() {
       console.log('Good');
-    }).fail(function() {
-      console.log('No Good');
-    })
+    },
+    error: function(e, status, error) {
+      console.log(e);
+    }
+  });
 }
- // "creation_date_time": current_time,
-// JSON.stringify({HardActivities: json_monthly_hard_activities}),
+
 
 // daily answer section -- draw all monthly image list
 function drawDailyImage() {
@@ -228,5 +193,4 @@ function postDailyActivities(daily_event_names, daily_image_names, token) {
     }
   })
 }
-
 ;
