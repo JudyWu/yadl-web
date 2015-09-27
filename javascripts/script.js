@@ -1,8 +1,12 @@
 $(document).ready(function(){
-  var url_info = document.location.hash.substring(14);
-  console.log(url_info);
-  token = url_info.substring(0, 36).toString();
+  // var url_info = document.location.hash.substring(14);
+  // console.log(url_info);
+  // token = url_info.substring(0, 36).toString();
+  token = url('#assess_token');
+  username = url('#username');
+  // username =
   console.log(token);
+  console.log(username);
   // document.location.hash = '';
   var sign_in = document.getElementById('sign_in');
   var survey_options = document.getElementById('survey_options');

@@ -94,7 +94,7 @@ function postMonthlyActivities(monthly_image_names, monthly_event_names, token) 
 function drawDailyImage() {
   $.ajax({
     type: 'GET',
-    url: ohmage_dsu + "dataPoints/" + ,
+    url: ohmage_dsu + "dataPoints/" + getDataPointId(username),
     headers: {
       "Authorization": "Bearer " + token
     },
@@ -166,7 +166,7 @@ function drawDailySelectedActivities() {
 }
 
 // daily answer GET request
-function getDataPointId(username, data_type) {
+function getDataPointId(username) {
   return ["yadl-monthly-survey", username].join("-");
 }
 
