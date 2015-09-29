@@ -110,7 +110,6 @@ function drawDailyImage() {
       });
       console.log('Good image');
 
-
       var daily_event_list = data["body"]["activity_names"];
       $.each(daily_event_list, function(index, value) {
         var daily_event_id = value.replace(/\s+/g, '_').toLowerCase();

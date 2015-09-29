@@ -1,7 +1,5 @@
 $(document).ready(function(){
   token = url('#access_token');
-  console.log(token);
-  console.log(username);
   document.location.hash = '';
   var sign_in = document.getElementById('sign_in');
   var survey_options = document.getElementById('survey_options');
