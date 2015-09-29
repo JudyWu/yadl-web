@@ -1,13 +1,8 @@
 $(document).ready(function(){
-  // var url_info = document.location.hash.substring(14);
-  // console.log(url_info);
-  // token = url_info.substring(0, 36).toString();
   token = url('#access_token');
-  username = url('#username');
-  // username =
   console.log(token);
   console.log(username);
-  // document.location.hash = '';
+  document.location.hash = '';
   var sign_in = document.getElementById('sign_in');
   var survey_options = document.getElementById('survey_options');
   var monthly_assessment = document.getElementById('monthly_assessment');
@@ -22,7 +17,7 @@ $(document).ready(function(){
     $.getJSON(ohmage_dsu + "oauth/check_token?token=" + token)
       .done(function(data) {
           console.log("Get the token!");
-          var username = data["user_name"];
+          username = data["user_name"];
           console.log(username);
       })
       .fail(function() {

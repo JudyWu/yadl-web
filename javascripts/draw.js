@@ -94,11 +94,12 @@ function postMonthlyActivities(monthly_image_names, monthly_event_names, token) 
 // daily answer section -- draw all monthly image list
 function drawDailyImage() {
   $.ajax({
-    type: 'GET',
-    url: ohmage_dsu + "dataPoints/" + getDataPointId(username),
+    method: "GET",
     headers: {
-      "Authorization": "Bearer " + token
+        "Authorization": "Bearer " + token
     },
+    url: "https://ohmage-omh.smalldata.io/dsu/dataPoints",
+    data: {schema_namespace: "omh", schema_name: "yadl-monthly-survey", schema_version:"1.0"},
     success: function(data) {
       var daily_image_list = data["body"]["activity_images"];
       $.each(daily_image_list, function(index, value) {
