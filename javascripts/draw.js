@@ -101,7 +101,7 @@ function drawDailyImage() {
     url: "https://ohmage-omh.smalldata.io/dsu/dataPoints",
     data: {schema_namespace: "omh", schema_name: "yadl-monthly-survey", schema_version:"1.0"},
     success: function(data) {
-      var daily_image_list = data["body"]["activity_images"];
+      var daily_image_list = data[data.length - 1]["body"]["activity_images"];
       $.each(daily_image_list, function(index, value) {
         $('.daily_render_part').prepend('<div class="col-xs-4 daily-image" id="'+ value +'"></div>');
         $('#'+ value).append('<img class="img-responsive" src="images/survey-images/' + value +'.jpg" >');
@@ -110,7 +110,7 @@ function drawDailyImage() {
       });
       console.log('Good image');
 
-      var daily_event_list = data["body"]["activity_names"];
+      var daily_event_list = data[data.length - 1]["body"]["activity_names"];
       $.each(daily_event_list, function(index, value) {
         var daily_event_id = value.replace(/\s+/g, '_').toLowerCase();
         $('.daily_render_part').prepend('<div class="col-xs-4 daily-image" id="'+ daily_event_id +'"></div>');

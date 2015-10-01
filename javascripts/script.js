@@ -1,5 +1,6 @@
 $(document).ready(function(){
   token = url('#access_token');
+  // d77b0c9b-d2d8-40e4-806e-6330be4ca8af
   document.location.hash = '';
   var sign_in = document.getElementById('sign_in');
   var survey_options = document.getElementById('survey_options');
