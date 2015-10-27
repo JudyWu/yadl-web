@@ -3,8 +3,10 @@ var ohmage_dsu = "https://ohmage-omh.smalldata.io/dsu/";
 
 // monthly assessment level select
 function choiceClick(counter) {
-  $('#picture .slick-next').trigger('click');
-  $('#picture-array .slick-next').trigger('click');
+  // $('#picture .slick-next').trigger('click');
+  // $('#picture-array .slick-next').trigger('click');
+  $('#picture').slickNext();
+  $('#picture-array').slickNext();
   $('.image_number').html(counter + 1 + ' of 46');
   $('.slick-current').find('.overlay').addClass('click-overlay');
 }

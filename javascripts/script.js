@@ -25,6 +25,7 @@ $(document).ready(function(){
       });
   }
 
+
   // temporary solution for no Gmail sign in
 
   // survey choices options
@@ -34,6 +35,7 @@ $(document).ready(function(){
     $('#picture').slick();
     $('#picture-array').slick({
       // centerMode: true,
+      accessibility: false,
       centerPadding: '60px',
       slidesToShow: 12,
       responsive: [
