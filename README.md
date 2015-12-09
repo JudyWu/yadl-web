@@ -1,4 +1,4 @@
-<h1>YADL</h1>
+<h1>YADL (version 1.0)</h1>
 
 <p>Your Activities of Daily Living (YADL) is an image-based survey for patients with arthritis. It uses images of Activities of Daily Living (ADLs) to improve patients' experience. The interface possesses several added benefits: wider coverage of ADLs, engaged and personalized experience, and accurate capture of individual health situations. YADL holds the promise for improving the efficacy of reporting ADLs and enhancing doctor-patient communications.</p>
 
